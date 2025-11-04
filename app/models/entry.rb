@@ -6,6 +6,13 @@ class Entry < ApplicationRecord
 
   before_validation :credit_and_debit_must_be_different
 
+  def entry_type
+    return :income if debit_account.real? && credit_account.virtual?
+    return :expense if debit_account.virtual? && credit_account.real?
+
+    :allocation
+  end
+
   private
 
   def set_defaults
