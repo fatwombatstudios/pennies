@@ -4,13 +4,23 @@
 
 <h1>Accounts</h1>
 
-<div id="accounts">
+<table id="accounts">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th></th>
+  </tr>
   <% @accounts.each do |account| %>
-    <%= render account %>
-    <p>
-      <%= link_to "Show this account", account %>
-    </p>
+  <tr>
+    <td><%= account.name %></td>
+    <td><%= account.description %></td>
+    <td><%= Account.account_types[account.account_type] %></td>
+    <td><%= link_to "show", account %></td>
+  </tr>
   <% end %>
-</div>
+</table>
+
+<br>
 
 <%= link_to "New account", new_account_path %>
