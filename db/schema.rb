@@ -10,5 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 0) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_04_112827) do
+  create_table "transactions", force: :cascade do |t|
+    t.datetime "date", null: false
+    t.decimal "amount", null: false
+    t.string "current", null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 end
