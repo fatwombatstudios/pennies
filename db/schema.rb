@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_04_162356) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_04_164203) do
   create_table "accounts", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
@@ -18,4 +18,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_04_162356) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "entries", force: :cascade do |t|
+    t.datetime "date", null: false
+    t.string "currency", null: false
+    t.decimal "amount", null: false
+    t.integer "debit_account_id", null: false
+    t.integer "credit_account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["credit_account_id"], name: "index_entries_on_credit_account_id"
+    t.index ["debit_account_id"], name: "index_entries_on_debit_account_id"
+  end
+
+  add_foreign_key "entries", "credit_accounts"
+  add_foreign_key "entries", "debit_accounts"
 end
