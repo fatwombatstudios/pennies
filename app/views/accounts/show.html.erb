@@ -1,10 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<h1><%= @account.name %> Account</h1>
 
-<%= render @account %>
+  <p style="color: green"><%= notice %></p>
+
+<div id="<%= dom_id @account %>">
+  <p>
+    <strong>Name:</strong>
+    <%= @account.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @account.description %>
+  </p>
+
+  <p>
+    <strong>Account type:</strong>
+    <%= @account.account_type %>
+  </p>
+
+</div>
 
 <div>
   <%= link_to "Edit this account", edit_account_path(@account) %> |
   <%= link_to "Back to accounts", accounts_path %>
-
-  <%= button_to "Destroy this account", @account, method: :delete %>
 </div>

@@ -96,16 +96,4 @@ RSpec.describe "/accounts", type: :request do
       end
     end
   end
-
-  describe "DELETE /destroy" do
-    it "destroys the requested account and redirects to the accounts list" do
-      account = create :account
-      expect(Account.count).to eq 1
-
-      delete account_url(account)
-
-      expect(Account.count).to eq 0
-      expect(response).to redirect_to(accounts_url)
-    end
-  end
 end
