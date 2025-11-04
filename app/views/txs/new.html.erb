@@ -1,0 +1,11 @@
+<% content_for :title, "New tx" %>
+
+<h1>New tx</h1>
+
+<%= render "form", tx: @tx %>
+
+<br>
+
+<div>
+  <%= link_to "Back to txs", txs_path %>
+</div>

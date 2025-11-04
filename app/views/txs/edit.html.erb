@@ -1,0 +1,12 @@
+<% content_for :title, "Editing tx" %>
+
+<h1>Editing tx</h1>
+
+<%= render "form", tx: @tx %>
+
+<br>
+
+<div>
+  <%= link_to "Show this tx", @tx %> |
+  <%= link_to "Back to txs", txs_path %>
+</div>
