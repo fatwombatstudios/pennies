@@ -27,10 +27,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_04_164203) do
     t.integer "credit_account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["credit_account_id"], name: "index_entries_on_credit_account_id"
-    t.index ["debit_account_id"], name: "index_entries_on_debit_account_id"
   end
 
-  add_foreign_key "entries", "credit_accounts"
-  add_foreign_key "entries", "debit_accounts"
+  add_foreign_key "entries", "accounts", column: "credit_account_id"
+  add_foreign_key "entries", "accounts", column: "debit_account_id"
 end
