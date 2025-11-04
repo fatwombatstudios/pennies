@@ -2,15 +2,40 @@
 
 <% content_for :title, "Entries" %>
 
-<h1>Entries</h1>
+<h1>Transactions</h1>
 
-<div id="entries">
-  <% @entries.each do |entry| %>
-    <%= render entry %>
-    <p>
-      <%= link_to "Show this entry", entry %>
-    </p>
+<hr>
+  <h3>Balances</h3>
+  <% @accounts.each do |account| %>
+    <span><%= account.name %></span>
+    <span><%= number_to_currency account.balance %></span>
+    ...
   <% end %>
-</div>
+<hr>
+
+<table id="entries">
+  <tr>
+    <th>Date</th>
+    <th></th>
+    <th>Amount</th>
+    <th></th>
+    <th>Debit</th>
+    <th>Credit</th>
+    <th></th>
+  </tr>
+  <% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.date.strftime "%d %b %y" %></td>
+    <td><%= entry.currency %></td>
+    <td><%= entry.amount %></td>
+    <td><%= entry.entry_type %></td>
+    <td><%= entry.debit_account.name %></td>
+    <td><%= entry.credit_account.name %></td>
+    <td><%= link_to "show", entry %></td>
+  </tr>
+  <% end %>
+</table>
+
+<br>
 
 <%= link_to "New entry", new_entry_path %>

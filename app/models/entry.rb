@@ -4,9 +4,25 @@ class Entry < ApplicationRecord
 
   after_initialize :set_defaults
 
+  before_validation :credit_and_debit_must_be_different
+
+  def entry_type
+    return :income if debit_account.real? && credit_account.virtual?
+    return :expense if debit_account.virtual? && credit_account.real?
+
+    :allocation
+  end
+
   private
 
   def set_defaults
+    self.date ||= DateTime.now
     self.currency ||= :eur
+  end
+
+  def credit_and_debit_must_be_different
+    if debit_account == credit_account
+      errors.add(:credit_account, "must be different to the debit account")
+    end
   end
 end
