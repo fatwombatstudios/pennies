@@ -4,10 +4,18 @@ class Entry < ApplicationRecord
 
   after_initialize :set_defaults
 
+  before_validation :credit_and_debit_must_be_different
+
   private
 
   def set_defaults
     self.date ||= DateTime.now
     self.currency ||= :eur
+  end
+
+  def credit_and_debit_must_be_different
+    if debit_account == credit_account
+      errors.add(:credit_account, "must be different to the debit account")
+    end
   end
 end
