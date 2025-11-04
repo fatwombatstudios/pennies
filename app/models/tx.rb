@@ -1,4 +1,6 @@
 class Tx < ApplicationRecord
+  has_many :tags
+
   after_initialize :set_defaults
 
   private

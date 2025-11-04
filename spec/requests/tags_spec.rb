@@ -12,9 +12,9 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/txs", type: :request do
+RSpec.describe "/tags", type: :request do
   # This should return the minimal set of attributes required to create a valid
-  # Tx. As you add validations to Tx, be sure to
+  # Tag. As you add validations to Tag, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -26,58 +26,58 @@ RSpec.describe "/txs", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Tx.create! valid_attributes
-      get txs_url
+      Tag.create! valid_attributes
+      get tags_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      tx = Tx.create! valid_attributes
-      get tx_url(tx)
+      tag = Tag.create! valid_attributes
+      get tag_url(tag)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_tx_url
+      get new_tag_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /edit" do
     it "renders a successful response" do
-      tx = Tx.create! valid_attributes
-      get edit_tx_url(tx)
+      tag = Tag.create! valid_attributes
+      get edit_tag_url(tag)
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Tx" do
+      it "creates a new Tag" do
         expect {
-          post txs_url, params: { tx: valid_attributes }
-        }.to change(Tx, :count).by(1)
+          post tags_url, params: { tag: valid_attributes }
+        }.to change(Tag, :count).by(1)
       end
 
-      it "redirects to the created tx" do
-        post txs_url, params: { tx: valid_attributes }
-        expect(response).to redirect_to(tx_url(Tx.last))
+      it "redirects to the created tag" do
+        post tags_url, params: { tag: valid_attributes }
+        expect(response).to redirect_to(tag_url(Tag.last))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Tx" do
+      it "does not create a new Tag" do
         expect {
-          post txs_url, params: { tx: invalid_attributes }
-        }.to change(Tx, :count).by(0)
+          post tags_url, params: { tag: invalid_attributes }
+        }.to change(Tag, :count).by(0)
       end
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post txs_url, params: { tx: invalid_attributes }
+        post tags_url, params: { tag: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_content)
       end
     end
@@ -89,42 +89,42 @@ RSpec.describe "/txs", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested tx" do
-        tx = Tx.create! valid_attributes
-        patch tx_url(tx), params: { tx: new_attributes }
-        tx.reload
+      it "updates the requested tag" do
+        tag = Tag.create! valid_attributes
+        patch tag_url(tag), params: { tag: new_attributes }
+        tag.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the tx" do
-        tx = Tx.create! valid_attributes
-        patch tx_url(tx), params: { tx: new_attributes }
-        tx.reload
-        expect(response).to redirect_to(tx_url(tx))
+      it "redirects to the tag" do
+        tag = Tag.create! valid_attributes
+        patch tag_url(tag), params: { tag: new_attributes }
+        tag.reload
+        expect(response).to redirect_to(tag_url(tag))
       end
     end
 
     context "with invalid parameters" do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        tx = Tx.create! valid_attributes
-        patch tx_url(tx), params: { tx: invalid_attributes }
+        tag = Tag.create! valid_attributes
+        patch tag_url(tag), params: { tag: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested tx" do
-      tx = Tx.create! valid_attributes
+    it "destroys the requested tag" do
+      tag = Tag.create! valid_attributes
       expect {
-        delete tx_url(tx)
-      }.to change(Tx, :count).by(-1)
+        delete tag_url(tag)
+      }.to change(Tag, :count).by(-1)
     end
 
-    it "redirects to the txs list" do
-      tx = Tx.create! valid_attributes
-      delete tx_url(tx)
-      expect(response).to redirect_to(txs_url)
+    it "redirects to the tags list" do
+      tag = Tag.create! valid_attributes
+      delete tag_url(tag)
+      expect(response).to redirect_to(tags_url)
     end
   end
 end

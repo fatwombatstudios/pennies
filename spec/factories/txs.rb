@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :tx do
-    date { Datetime.now }
+    date { DateTime.now }
     amount { "9.99" }
   end
 end
