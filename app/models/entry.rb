@@ -7,6 +7,7 @@ class Entry < ApplicationRecord
   private
 
   def set_defaults
+    self.date ||= DateTime.now
     self.currency ||= :eur
   end
 end
