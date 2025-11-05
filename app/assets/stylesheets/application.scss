@@ -1,1 +1,20 @@
 // Sassy
+
+#entries {
+  .entry {
+    padding: 4px 0;
+    display: flex;
+    gap: 1rem;
+
+    &:hover {
+      background-color: #fafafa;
+    }
+
+    span {
+      min-width: 5rem;
+    }
+    span.description {
+      min-width: 150px;
+    }
+  }
+}

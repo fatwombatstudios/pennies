@@ -5,36 +5,21 @@
 <h1>Transactions</h1>
 
 <hr>
-  <h3>Balances</h3>
-  <% @buckets.each do |bucket| %>
-    <span><%= bucket.name %></span>
-    <span><%= number_to_currency bucket.balance %></span>
-    ...
-  <% end %>
+
+<h3>Balances</h3>
+<% @buckets.each do |bucket| %>
+  <span><%= bucket.name %></span>
+  <span><%= number_to_currency bucket.balance %></span>
+  ...
+<% end %>
+
 <hr>
 
-<table id="entries">
-  <tr>
-    <th>Date</th>
-    <th></th>
-    <th>Amount</th>
-    <th></th>
-    <th>Debit</th>
-    <th>Credit</th>
-    <th></th>
-  </tr>
+<div id="entries">
   <% @entries.each do |entry| %>
-  <tr>
-    <td><%= entry.date.strftime "%d %b %y" %></td>
-    <td><%= entry.currency %></td>
-    <td><%= entry.amount %></td>
-    <td><%= entry.entry_type %></td>
-    <td><%= entry.debit_account.name %></td>
-    <td><%= entry.credit_account.name %></td>
-    <td><%= link_to "show", entry %></td>
-  </tr>
+    <%= render entry %>
   <% end %>
-</table>
+</div>
 
 <br>
 

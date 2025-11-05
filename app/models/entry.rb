@@ -8,9 +8,21 @@ class Entry < ApplicationRecord
   before_validation :must_have_an_account
   before_validation :credit_and_debit_must_be_different
 
+  def income?
+    debit_account.real? && credit_account.virtual?
+  end
+
+  def expense?
+    debit_account.virtual? && credit_account.real?
+  end
+
+  def allocation?
+    !income? && !expense?
+  end
+
   def entry_type
-    return :income if debit_account.real? && credit_account.virtual?
-    return :expense if debit_account.virtual? && credit_account.real?
+    return :income if income?
+    return :expense if expense?
 
     :allocation
   end
