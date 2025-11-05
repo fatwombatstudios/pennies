@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # Session routes
+  get "sign-in", to: "sessions#new", as: :sign_in
+  post "sign-in", to: "sessions#create"
+  get "sign-out", to: "sessions#destroy", as: :sign_out
+
   resources :entries
   resources :buckets, except: [ :destroy ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

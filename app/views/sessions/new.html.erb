@@ -1,0 +1,23 @@
+<h1>Sign In</h1>
+
+<%= form_with(url: sign_in_path, method: :post) do |form| %>
+  <% if flash[:alert] %>
+    <div style="color: red">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.email_field :email, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Sign In" %>
+  </div>
+<% end %>
