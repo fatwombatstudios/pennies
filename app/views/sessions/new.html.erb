@@ -7,6 +7,12 @@
     </div>
   <% end %>
 
+  <% if flash[:notice] %>
+    <div style="color: green">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <div>
     <%= form.label :email, style: "display: block" %>
     <%= form.email_field :email, required: true %>
