@@ -1,11 +1,12 @@
 class EntriesController < ApplicationController
   before_action :must_be_signed_in
   before_action :set_buckets
+  before_action :set_kind
   before_action :set_entry, only: %i[ show edit update ]
 
   # GET /entries or /entries.json
   def index
-    @entries = Entry.all
+    @entries = current_account.entries
   end
 
   # GET /entries/1 or /entries/1.json
@@ -48,7 +49,13 @@ class EntriesController < ApplicationController
   end
 
   def set_buckets
-    @buckets = Bucket.all
+    @buckets = current_account.buckets.all
+    @income_buckets = [ Bucket.first ]
+    @real_buckets = @buckets.filter { |b| b.real? }
+  end
+
+  def set_kind
+    @entry_kind = params[:kind]
   end
 
   def entry_params

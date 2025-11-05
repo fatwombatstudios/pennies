@@ -1,27 +1,27 @@
-<div id="<%= dom_id entry %>">
-  <p>
-    <strong>Date:</strong>
-    <%= entry.date %>
-  </p>
+<div id="<%= dom_id entry %>" class="entry <%= entry.entry_type %>">
+<% if entry.income? %>
+  <span class="date"><%= entry.date.strftime "%d %b %y" %></span>
+  <span class="amount"><%= number_to_currency entry.amount %></span>
+  <span class="type"><%= entry.entry_type %></span>
+  <span class="description">Received into <%= entry.debit_account.name %></span>
+<% end %>
 
-  <p>
-    <strong>Currency:</strong>
-    <%= entry.currency %>
-  </p>
+<% if entry.expense? %>
+  <span class="date"><%= entry.date.strftime "%d %b %y" %></span>
+  <span class="amount"><%= number_to_currency entry.amount %></span>
+  <span class="type"><%= entry.entry_type %></span>
+  <span class="description"><%= entry.debit_account.name %> from <%= entry.credit_account.name %></span>
+<% end %>
 
-  <p>
-    <strong>Amount:</strong>
-    <%= entry.amount %>
-  </p>
+<% if entry.allocation? %>
+  <span class="date"><%= entry.date.strftime "%d %b %y" %></span>
+  <span class="amount"><%= number_to_currency entry.amount %></span>
+  <span class="type"><%= entry.entry_type %></span>
+  <span class="description"><%= entry.debit_account.name %> -> <%= entry.credit_account.name %></span>
+<% end %>
 
-  <p>
-    <strong>Debit account:</strong>
-    <%= entry.debit_account_id %>
-  </p>
-
-  <p>
-    <strong>Credit account:</strong>
-    <%= entry.credit_account_id %>
-  </p>
-
+<span class="actions">
+  <%= link_to "edit", edit_entry_path(entry) %> |
+  <%= link_to "delete", entry_path(entry), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+</span>
 </div>
