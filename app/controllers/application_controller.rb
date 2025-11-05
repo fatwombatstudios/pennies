@@ -9,9 +9,11 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
-  def must_be_signed_in
-    redirect_to sign_in_path unless current_user
+  def current_account
+    @current_account ||= current_user.account if current_user
+  end
 
-    @account = current_user.account
+  def must_be_signed_in
+    redirect_to sign_in_path if current_account.nil?
   end
 end

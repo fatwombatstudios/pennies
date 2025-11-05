@@ -10,14 +10,14 @@ class BucketsController < ApplicationController
   end
 
   def new
-    @bucket = Bucket.new account_id: @account.id
+    @bucket = Bucket.new account_id: current_account.id
   end
 
   def edit
   end
 
   def create
-    @bucket = Bucket.new bucket_params.merge(account_id: @account.id)
+    @bucket = Bucket.new bucket_params.merge(account_id: current_account.id)
 
     respond_to do |format|
       if @bucket.save

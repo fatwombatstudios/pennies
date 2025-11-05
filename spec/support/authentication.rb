@@ -1,4 +1,5 @@
 def authenticate(user)
+  post sign_in_url, params: { email: user.email, password: user.password }
 end
 
 def sign_in_as(user)
