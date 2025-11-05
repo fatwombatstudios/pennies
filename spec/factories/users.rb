@@ -3,5 +3,7 @@ FactoryBot.define do
     name { "Test User" }
     sequence(:email) { |n| "user#{n}@example.com" }
     password { "password123" }
+
+    association :account
   end
 end

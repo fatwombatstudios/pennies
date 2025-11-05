@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
-  before_action :set_accounts
+  before_action :must_be_signed_in
+  before_action :set_buckets
   before_action :set_entry, only: %i[ show edit update ]
 
   # GET /entries or /entries.json
@@ -46,8 +47,8 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params.expect(:id))
   end
 
-  def set_accounts
-    @accounts = Bucket.all
+  def set_buckets
+    @buckets = Bucket.all
   end
 
   def entry_params

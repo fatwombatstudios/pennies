@@ -1,9 +1,11 @@
 class Entry < ApplicationRecord
+  belongs_to :account
   belongs_to :debit_account, class_name: "Bucket"
   belongs_to :credit_account, class_name: "Bucket"
 
   after_initialize :set_defaults
 
+  before_validation :must_have_an_account
   before_validation :credit_and_debit_must_be_different
 
   def entry_type
@@ -18,6 +20,10 @@ class Entry < ApplicationRecord
   def set_defaults
     self.date ||= DateTime.now
     self.currency ||= :eur
+  end
+
+  def must_have_an_account
+    self.account_id ||= debit_account.account_id
   end
 
   def credit_and_debit_must_be_different
