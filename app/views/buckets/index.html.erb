@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Buckets" %>
+
+<h1>Buckets</h1>
+
+<table id="buckets">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th></th>
+  </tr>
+  <% @buckets.each do |bucket| %>
+  <tr>
+    <td><%= bucket.name %></td>
+    <td><%= bucket.description %></td>
+    <td><%= Bucket.account_types[bucket.account_type] %></td>
+    <td><%= link_to "show", bucket %></td>
+  </tr>
+  <% end %>
+</table>
+
+<br>
+
+<%= link_to "New bucket", new_bucket_path %>

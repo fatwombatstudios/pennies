@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_04_164203) do
-  create_table "accounts", force: :cascade do |t|
+ActiveRecord::Schema[8.0].define(version: 2025_11_05_070234) do
+  create_table "buckets", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
     t.string "account_type", null: false
@@ -29,6 +29,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_04_164203) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "entries", "accounts", column: "credit_account_id"
-  add_foreign_key "entries", "accounts", column: "debit_account_id"
+  add_foreign_key "entries", "buckets", column: "credit_account_id"
+  add_foreign_key "entries", "buckets", column: "debit_account_id"
 end

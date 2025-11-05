@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "/accounts", type: :request do
+RSpec.describe "/buckets", type: :request do
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }
@@ -9,59 +9,59 @@ RSpec.describe "/accounts", type: :request do
     skip("Add a hash of attributes invalid for your model")
   }
 
-  let(:account) { create :account }
+  let(:bucket) { create :bucket }
 
   describe "GET /index" do
     it "renders a successful response" do
-      get accounts_url
+      get buckets_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      get account_url(account)
+      get bucket_url(bucket)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_account_url
+      get new_bucket_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /edit" do
     it "renders a successful response" do
-      get edit_account_url(account)
+      get edit_bucket_url(bucket)
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Account" do
+      it "creates a new Bucket" do
         expect {
-          post accounts_url, params: { account: valid_attributes }
-        }.to change(Account, :count).by(1)
+          post buckets_url, params: { bucket: valid_attributes }
+        }.to change(Bucket, :count).by(1)
       end
 
-      it "redirects to the created account" do
-        post accounts_url, params: { account: valid_attributes }
-        expect(response).to redirect_to(account_url(Account.last))
+      it "redirects to the created bucket" do
+        post buckets_url, params: { bucket: valid_attributes }
+        expect(response).to redirect_to(bucket_url(Bucket.last))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Account" do
+      it "does not create a new Bucket" do
         expect {
-          post accounts_url, params: { account: invalid_attributes }
-        }.to change(Account, :count).by(0)
+          post buckets_url, params: { bucket: invalid_attributes }
+        }.to change(Bucket, :count).by(0)
       end
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post accounts_url, params: { account: invalid_attributes }
+        post buckets_url, params: { bucket: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_content)
       end
     end
@@ -73,25 +73,25 @@ RSpec.describe "/accounts", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested account" do
-        account = Account.create! valid_attributes
-        patch account_url(account), params: { account: new_attributes }
-        account.reload
+      it "updates the requested bucket" do
+        bucket = Bucket.create! valid_attributes
+        patch bucket_url(bucket), params: { bucket: new_attributes }
+        bucket.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the account" do
-        account = Account.create! valid_attributes
-        patch account_url(account), params: { account: new_attributes }
-        account.reload
-        expect(response).to redirect_to(account_url(account))
+      it "redirects to the bucket" do
+        bucket = Bucket.create! valid_attributes
+        patch bucket_url(bucket), params: { bucket: new_attributes }
+        bucket.reload
+        expect(response).to redirect_to(bucket_url(bucket))
       end
     end
 
     context "with invalid parameters" do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        account = Account.create! valid_attributes
-        patch account_url(account), params: { account: invalid_attributes }
+        bucket = Bucket.create! valid_attributes
+        patch bucket_url(bucket), params: { bucket: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_content)
       end
     end

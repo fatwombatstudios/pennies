@@ -1,0 +1,26 @@
+<h1><%= @bucket.name %> Bucket</h1>
+
+  <p style="color: green"><%= notice %></p>
+
+<div id="<%= dom_id @bucket %>">
+  <p>
+    <strong>Name:</strong>
+    <%= @bucket.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @bucket.description %>
+  </p>
+
+  <p>
+    <strong>Account type:</strong>
+    <%= @bucket.account_type %>
+  </p>
+
+</div>
+
+<div>
+  <%= link_to "Edit this bucket", edit_bucket_path(@bucket) %> |
+  <%= link_to "Back to buckets", buckets_path %>
+</div>

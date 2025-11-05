@@ -6,8 +6,8 @@ RSpec.describe Entry, type: :model do
   end
 
   it "wont allow debit and credit accounts to be the same" do
-    account = create :account
-    entry = build :entry, debit_account: account, credit_account: account
+    bucket = create :bucket
+    entry = build :entry, debit_account: bucket, credit_account: bucket
 
     expect(entry).not_to be_valid
     expect(entry.errors.first.full_message).to include "Credit account must be different to the debit account"
