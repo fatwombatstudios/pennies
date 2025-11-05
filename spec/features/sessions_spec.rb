@@ -8,8 +8,8 @@ RSpec.describe "Sessions", type: :feature do
   scenario "a user signs in successfully" do
     visit "/sign-in"
 
-    fill_in "Email", with: "user@example.com"
-    fill_in "Password", with: "password123"
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: @user.password
 
     click_on "Sign In"
 
@@ -19,7 +19,7 @@ RSpec.describe "Sessions", type: :feature do
   scenario "a user fails to sign in with wrong password" do
     visit "/sign-in"
 
-    fill_in "Email", with: "user@example.com"
+    fill_in "Email", with: @user.email
     fill_in "Password", with: "wrongpassword"
 
     click_on "Sign In"
@@ -31,7 +31,7 @@ RSpec.describe "Sessions", type: :feature do
     visit "/sign-in"
 
     fill_in "Email", with: "nonexistent@example.com"
-    fill_in "Password", with: "password123"
+    fill_in "Password", with: @user.password
 
     click_on "Sign In"
 
@@ -41,8 +41,8 @@ RSpec.describe "Sessions", type: :feature do
   scenario "a user signs out" do
     visit "/sign-in"
 
-    fill_in "Email", with: "user@example.com"
-    fill_in "Password", with: "password123"
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: @user.password
 
     click_on "Sign In"
 
