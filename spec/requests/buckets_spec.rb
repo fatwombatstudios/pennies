@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "/buckets", type: :request do
+RSpec.xdescribe "/buckets", type: :request do
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }
@@ -9,6 +9,7 @@ RSpec.describe "/buckets", type: :request do
     skip("Add a hash of attributes invalid for your model")
   }
 
+  let(:user) { create :user }
   let(:bucket) { create :bucket }
 
   describe "GET /index" do

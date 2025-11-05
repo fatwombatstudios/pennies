@@ -28,12 +28,12 @@
 
   <div>
     <%= form.label :debit_account_id, style: "display: block" %>
-    <%= form.select :debit_account_id, @accounts.collect { |a| [a.name, a.id] } %>
+    <%= form.select :debit_account_id, @buckets.collect { |a| [a.name, a.id] } %>
   </div>
 
   <div>
     <%= form.label :credit_account_id, style: "display: block" %>
-    <%= form.select :credit_account_id, @accounts.collect { |a| [a.name, a.id] } %>
+    <%= form.select :credit_account_id, @buckets.collect { |a| [a.name, a.id] } %>
   </div>
 
   <div>

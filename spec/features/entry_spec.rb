@@ -1,9 +1,13 @@
 require "rails_helper"
 
 RSpec.describe "Entries", type: :feature do
+  let(:user) { create :user }
+
   before do
-    create :bucket, name: "CIC", account_type: :real
-    create :bucket, name: "Savings", account_type: :virtual
+    create :bucket, name: "CIC", account_type: :real, account: user.account
+    create :bucket, name: "Savings", account_type: :virtual, account: user.account
+
+    sign_in_as user
   end
 
   scenario "a user creates a new entry" do
