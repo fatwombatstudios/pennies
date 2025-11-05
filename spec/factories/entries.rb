@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :entry do
     amount { "9.99" }
-    association :debit_account, factory: :account
-    association :credit_account, factory: :account
+    association :debit_account, factory: :bucket
+    association :credit_account, factory: :bucket
   end
 end

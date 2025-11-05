@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe "Entries", type: :feature do
   before do
-    create :account, name: "CIC", account_type: :real
-    create :account, name: "Savings", account_type: :virtual
+    create :bucket, name: "CIC", account_type: :real
+    create :bucket, name: "Savings", account_type: :virtual
   end
 
   scenario "a user creates a new entry" do

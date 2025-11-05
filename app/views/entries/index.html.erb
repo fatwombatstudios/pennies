@@ -6,9 +6,9 @@
 
 <hr>
   <h3>Balances</h3>
-  <% @accounts.each do |account| %>
-    <span><%= account.name %></span>
-    <span><%= number_to_currency account.balance %></span>
+  <% @accounts.each do |bucket| %>
+    <span><%= bucket.name %></span>
+    <span><%= number_to_currency bucket.balance %></span>
     ...
   <% end %>
 <hr>

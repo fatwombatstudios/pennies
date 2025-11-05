@@ -47,7 +47,7 @@ class EntriesController < ApplicationController
   end
 
   def set_accounts
-    @accounts = Account.all
+    @accounts = Bucket.all
   end
 
   def entry_params
