@@ -1,4 +1,5 @@
 class BucketsController < ApplicationController
+  before_action :must_be_signed_in
   before_action :set_bucket, only: %i[ show edit update ]
 
   def index
@@ -9,14 +10,14 @@ class BucketsController < ApplicationController
   end
 
   def new
-    @bucket = Bucket.new
+    @bucket = Bucket.new account_id: @account.id
   end
 
   def edit
   end
 
   def create
-    @bucket = Bucket.new(bucket_params)
+    @bucket = Bucket.new bucket_params.merge(account_id: @account.id)
 
     respond_to do |format|
       if @bucket.save

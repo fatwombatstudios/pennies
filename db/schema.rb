@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_05_073148) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_05_082402) do
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,6 +22,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_05_073148) do
     t.string "account_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "account_id", null: false
+    t.index ["account_id"], name: "index_buckets_on_account_id"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -32,6 +34,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_05_073148) do
     t.integer "credit_account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "account_id", null: false
+    t.index ["account_id"], name: "index_entries_on_account_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,9 +44,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_05_073148) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "account_id"
+    t.index ["account_id"], name: "index_users_on_account_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "buckets", "accounts"
+  add_foreign_key "entries", "accounts"
   add_foreign_key "entries", "buckets", column: "credit_account_id"
   add_foreign_key "entries", "buckets", column: "debit_account_id"
+  add_foreign_key "users", "accounts"
 end

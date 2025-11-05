@@ -1,4 +1,5 @@
 class Entry < ApplicationRecord
+  belongs_to :account
   belongs_to :debit_account, class_name: "Bucket"
   belongs_to :credit_account, class_name: "Bucket"
 

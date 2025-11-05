@@ -1,6 +1,12 @@
 require "rails_helper"
 
 RSpec.describe "Buckets", type: :feature do
+  let(:user) { create :user }
+
+  before :each do
+    sign_in_as user
+  end
+
   scenario "browsing all buckets" do
     create :bucket, name: "Savings"
 

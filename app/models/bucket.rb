@@ -1,4 +1,6 @@
 class Bucket < ApplicationRecord
+  belongs_to :account
+
   has_many :debits, class_name: "Entry", foreign_key: :debit_account_id
   has_many :credits, class_name: "Entry", foreign_key: :credit_account_id
 
