@@ -12,7 +12,7 @@
   <br>
 
   <div>
-    <%= link_to "Spend", new_entry_path %> |
+    <%= link_to "Spend", spend_path(debit: @bucket) %> |
     <%= link_to "Edit", edit_bucket_path(@bucket) %>
   </div>
 

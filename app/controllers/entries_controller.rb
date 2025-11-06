@@ -1,8 +1,10 @@
 class EntriesController < ApplicationController
+  layout "desktop"
+
   before_action :must_be_signed_in
   before_action :set_buckets
   before_action :set_kind
-  before_action :set_entry, only: %i[ show edit update ]
+  before_action :set_entry, except: %i[ index new create spend ]
 
   # GET /entries or /entries.json
   def index
@@ -18,6 +20,10 @@ class EntriesController < ApplicationController
   end
 
   def edit
+  end
+
+  def spend
+    @entry = Entry.new
   end
 
   def create
