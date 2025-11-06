@@ -1,4 +1,6 @@
 class BucketsController < ApplicationController
+  layout "desktop"
+
   before_action :must_be_signed_in
   before_action :set_bucket, only: %i[ show edit update ]
 

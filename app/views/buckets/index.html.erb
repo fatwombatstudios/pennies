@@ -4,22 +4,24 @@
 
 <h1>Buckets</h1>
 
-<table id="buckets">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Type</th>
-    <th></th>
-  </tr>
-  <% @buckets.each do |bucket| %>
-  <tr>
-    <td><%= bucket.name %></td>
-    <td><%= bucket.description %></td>
-    <td><%= Bucket.account_types[bucket.account_type] %></td>
-    <td><%= link_to "show", bucket %></td>
-  </tr>
-  <% end %>
-</table>
+<br>
+
+<div class="flow-down gap-1">
+<% @buckets.each do |bucket| %>
+  <div class="desktop-bucket">
+    <div class="card">
+      <%= bucket.name %> - <%= Bucket.account_types[bucket.account_type] %><br>
+      <%= number_to_currency bucket.balance %>
+    </div>
+    <div class="actions flow-down">
+      <%= link_to "show", bucket %>
+      <%= link_to "edit", edit_bucket_path(bucket) %>
+      <%= link_to "spend", edit_bucket_path(bucket) %>
+    </div>
+    <div class="description"><%= bucket.description %></div>
+  </div>
+<% end %>
+</div>
 
 <br>
 
