@@ -2,13 +2,18 @@ class BucketsController < ApplicationController
   layout "desktop"
 
   before_action :must_be_signed_in
+  before_action :set_buckets
   before_action :set_bucket, only: %i[ show edit update ]
 
   def index
-    @buckets = Bucket.all
+    @buckets = current_account.buckets
   end
 
   def show
+    debits = current_account.entries.where(debit_account: @bucket)
+    credits = current_account.entries.where(credit_account: @bucket)
+
+    @entries = debits + credits
   end
 
   def new
@@ -40,11 +45,14 @@ class BucketsController < ApplicationController
     end
   end
 
-
   private
 
+  def set_buckets
+    @buckets = current_account.buckets
+  end
+
   def set_bucket
-    @bucket = Bucket.find(params.expect(:id))
+    @bucket = @buckets.find(params.expect(:id))
   end
 
   def bucket_params

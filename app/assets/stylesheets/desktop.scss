@@ -21,15 +21,19 @@ body {
   }
 }
 
+.card {
+  padding: 12px;
+  width: 250px;
+  background: #efefef;
+  border-radius: 5px;
+}
+
 .desktop-bucket {
   display: flex;
   gap: 24px;
 
   .card {
-    padding: 12px;
     width: 175px;
-    background: #efefef;
-    border-radius: 5px;
   }
 }
 

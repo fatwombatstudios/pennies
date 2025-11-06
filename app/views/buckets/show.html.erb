@@ -1,26 +1,28 @@
-<h1><%= @bucket.name %> Bucket</h1>
-
-  <p style="color: green"><%= notice %></p>
+<p style="color: green"><%= notice %></p>
 
 <div id="<%= dom_id @bucket %>">
-  <p>
-    <strong>Name:</strong>
-    <%= @bucket.name %>
-  </p>
+  <div class="card">
+    <h1><%= @bucket.name %></h1>
+    <%=  Bucket.account_types[@bucket.account_type] %> Bucket<br>
+    <h3><%= number_to_currency @bucket.balance %></h3>
+  </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @bucket.description %>
-  </p>
+  <p><%= @bucket.description %></p>
 
-  <p>
-    <strong>Account type:</strong>
-    <%= @bucket.account_type %>
-  </p>
+  <br>
 
-</div>
+  <div>
+    <%= link_to "Spend", new_entry_path %> |
+    <%= link_to "Edit", edit_bucket_path(@bucket) %>
+  </div>
 
-<div>
-  <%= link_to "Edit this bucket", edit_bucket_path(@bucket) %> |
-  <%= link_to "Back to buckets", buckets_path %>
+  <br>
+
+  <h2>Transactions</h2>
+
+  <div id="entries" class="flow-down">
+    <% @entries.each do |entry| %>
+      <%= render entry %>
+    <% end %>
+  </div>
 </div>

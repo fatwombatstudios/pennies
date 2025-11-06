@@ -8,7 +8,7 @@ RSpec.describe "Buckets", type: :feature do
   end
 
   scenario "browsing all buckets" do
-    create :bucket, name: "Savings"
+    create :bucket, name: "Savings", account: user.account
 
     visit "/buckets"
 
@@ -17,11 +17,11 @@ RSpec.describe "Buckets", type: :feature do
   end
 
   scenario "a user views a bucket" do
-    bucket = create :bucket, name: "Savings"
+    bucket = create :bucket, name: "Savings", account: user.account
 
     visit "/buckets/#{bucket.id}"
 
-    expect(page).to have_content "Savings Bucket"
+    expect(page).to have_content "Savings"
   end
 
   scenario "a user creates a new virtual bucket" do
