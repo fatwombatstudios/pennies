@@ -1,0 +1,47 @@
+$unit: 24px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+
+  & > nav {
+    min-height: 100vh;
+    min-width: 175px;
+    background-color: #eee;
+    padding: $unit;
+  }
+
+  & > main {
+    padding: $unit;
+  }
+}
+
+.card {
+  padding: 12px;
+  width: 250px;
+  background: #efefef;
+  border-radius: 5px;
+}
+
+.desktop-bucket {
+  display: flex;
+  gap: 24px;
+
+  .card {
+    width: 175px;
+  }
+}
+
+.flow-down {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap-1 {
+  gap: 12px;
+}
