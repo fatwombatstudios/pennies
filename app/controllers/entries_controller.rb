@@ -1,7 +1,6 @@
 class EntriesController < ApplicationController
   before_action :must_be_signed_in
   before_action :set_buckets
-  before_action :set_bucket_collections, only: %i[ income expense allocation create ]
   before_action :set_entry, only: %i[ show edit update ]
 
   # GET /entries or /entries.json
@@ -37,19 +36,11 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to entries_path, notice: entry_success_message(params[:entry][:form_type]) }
+        msg = "#{(params[:entry][:form_type] || "entry").capitalize} recorded successfully"
+        format.html { redirect_to entries_path, notice: msg }
       else
-        # Re-render the appropriate form based on hidden form_type field
-        case params[:entry][:form_type]
-        when "income"
-          format.html { render :income, status: :unprocessable_entity }
-        when "expense"
-          format.html { render :expense, status: :unprocessable_entity }
-        when "allocation"
-          format.html { render :allocation, status: :unprocessable_entity }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-        end
+        return_action = (params[:entry][:form_type] || "new").to_sym
+        format.html { render return_action, status: :unprocessable_entity }
       end
     end
   end
@@ -72,9 +63,6 @@ class EntriesController < ApplicationController
 
   def set_buckets
     @buckets = current_account.buckets
-  end
-
-  def set_bucket_collections
     @real_accounts = current_account.buckets.where(account_type: "Real")
     @income_buckets = current_account.buckets.where(account_type: "Income")
     @spending_buckets = current_account.buckets.where(account_type: [ "Spending", "Savings" ])
@@ -83,14 +71,5 @@ class EntriesController < ApplicationController
 
   def entry_params
     params.expect(entry: [ :date, :currency, :amount, :debit_account_id, :credit_account_id ])
-  end
-
-  def entry_success_message(form_type)
-    case form_type
-    when "income" then "Income recorded successfully."
-    when "expense" then "Expense recorded successfully."
-    when "allocation" then "Allocation completed successfully."
-    else "Entry was successfully created."
-    end
   end
 end

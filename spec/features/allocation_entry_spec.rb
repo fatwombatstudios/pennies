@@ -23,7 +23,7 @@ RSpec.describe "Allocation Entries", type: :feature do
 
     click_on "Allocate Funds"
 
-    expect(page).to have_content "Allocation completed successfully"
+    expect(page).to have_content "Allocation recorded successfully"
     expect(page).to have_content "300.00"
   end
 
@@ -68,7 +68,7 @@ RSpec.describe "Allocation Entries", type: :feature do
 
     click_on "Allocate Funds"
 
-    expect(page).to have_content "Allocation completed successfully"
+    expect(page).to have_content "Allocation recorded successfully"
     expect(page).to have_content "200.00"
   end
 
@@ -81,7 +81,7 @@ RSpec.describe "Allocation Entries", type: :feature do
 
     click_on "Allocate Funds"
 
-    expect(page).to have_content "Allocation completed successfully"
+    expect(page).to have_content "Allocation recorded successfully"
     expect(page).to have_content "150.00"
   end
 
