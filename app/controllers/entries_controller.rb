@@ -1,8 +1,11 @@
 class EntriesController < ApplicationController
+  FORM_TYPES = %i[ new edit income expense budget move]
+
   before_action :must_be_signed_in
   before_action :set_buckets
-  before_action :set_entry, only: %i[ show edit update ]
-  before_action :set_new_entry, execpt: %i[ show edit update create]
+  before_action :set_new_entry
+  before_action :set_this_entry, only: %i[ show edit update ]
+  before_action :set_form_type, only: FORM_TYPES
 
   def index
     @entries = current_account.entries
@@ -35,7 +38,6 @@ class EntriesController < ApplicationController
         msg = "#{(params[:entry][:form_type] || "entry").capitalize} recorded successfully"
         format.html { redirect_to entries_path, notice: msg }
       else
-        return_action = (params[:entry][:form_type] || "new").to_sym
         format.html { render return_action, status: :unprocessable_entity }
       end
     end
@@ -53,7 +55,7 @@ class EntriesController < ApplicationController
 
   private
 
-  def set_entry
+  def set_this_entry
     @entry = current_account.entries.find(params.expect(:id))
   end
 
@@ -69,7 +71,18 @@ class EntriesController < ApplicationController
     @virtual_buckets = current_account.buckets.where.not(account_type: "Real")
   end
 
+  def set_form_type
+    @form_type = action_name
+  end
+
   def entry_params
     params.expect(entry: [ :date, :currency, :amount, :debit_account_id, :credit_account_id ])
+  end
+
+  def return_action
+    return :new unless params[:entry][:form_type]
+    return :new unless FORM_TYPES.include? params[:entry][:form_type].to_sym
+
+    params[:entry][:form_type].to_sym
   end
 end

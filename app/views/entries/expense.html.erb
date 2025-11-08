@@ -13,7 +13,7 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :form_type, value: "expense" %>
+  <%= form.hidden_field :form_type, value: @form_type %>
 
   <div>
     <%= form.label :amount, "Expense Amount", style: "display: block" %>
