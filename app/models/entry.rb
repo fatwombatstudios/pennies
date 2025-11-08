@@ -13,8 +13,9 @@ class Entry < ApplicationRecord
   def entry_type
     return :income if debit_account.real? && credit_account.virtual?
     return :expense if debit_account.virtual? && credit_account.real?
+    return :transfer if debit_account.real? && credit_account.real?
 
-    :budget
+    :allocation
   end
 
   private

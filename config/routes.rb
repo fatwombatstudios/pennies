@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :income
       get :expense
       get :budget
+      get :move
     end
   end
   resources :buckets, except: [ :destroy ]

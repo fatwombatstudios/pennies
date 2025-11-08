@@ -26,6 +26,9 @@ class EntriesController < ApplicationController
   def budget
   end
 
+  def move
+  end
+
   def create
     respond_to do |format|
       if @entry.update(entry_params)
