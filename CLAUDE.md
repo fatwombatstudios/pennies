@@ -38,12 +38,14 @@ The application uses double-entry accounting principles where every financial tr
 4. **Entry** (`app/models/entry.rb`)
 
    - Double-entry transaction with debit and credit accounts
-   - Three transaction types:
+   - Four transaction types:
      - **Income**: Real account debited, virtual account credited
      - **Expense**: Virtual account debited, real account credited
+     - **Transfer**: Real account debited, real account credited (moves between bank accounts)
      - **Allocation**: Between virtual accounts (budget reallocation)
    - Includes date, amount, and currency
    - Validates that debit and credit accounts are different
+   - Validates amount is present and greater than 0
 
 ## Technology Stack
 

@@ -1,32 +1,44 @@
 class EntriesController < ApplicationController
+  FORM_TYPES = %i[ new edit income expense budget move]
+
   before_action :must_be_signed_in
   before_action :set_buckets
-  before_action :set_entry, only: %i[ show edit update ]
+  before_action :set_new_entry
+  before_action :set_this_entry, only: %i[ show edit update ]
+  before_action :set_form_type, only: FORM_TYPES
 
-  # GET /entries or /entries.json
   def index
-    @entries = Entry.all
+    @entries = current_account.entries
   end
 
-  # GET /entries/1 or /entries/1.json
   def show
   end
 
   def new
-    @entry = Entry.new
   end
 
   def edit
   end
 
-  def create
-    @entry = Entry.new(entry_params)
+  def income
+  end
 
+  def expense
+  end
+
+  def budget
+  end
+
+  def move
+  end
+
+  def create
     respond_to do |format|
-      if @entry.save
-        format.html { redirect_to entries_path, notice: "Entry was successfully created." }
+      if @entry.update(entry_params)
+        msg = "#{(params[:entry][:form_type] || "entry").capitalize} recorded successfully"
+        format.html { redirect_to entries_path, notice: msg }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render return_action, status: :unprocessable_entity }
       end
     end
   end
@@ -43,15 +55,34 @@ class EntriesController < ApplicationController
 
   private
 
-  def set_entry
-    @entry = Entry.find(params.expect(:id))
+  def set_this_entry
+    @entry = current_account.entries.find(params.expect(:id))
+  end
+
+  def set_new_entry
+    @entry = Entry.new account: current_account
   end
 
   def set_buckets
-    @buckets = Bucket.all
+    @buckets = current_account.buckets
+    @real_accounts = current_account.buckets.where(account_type: "Real")
+    @income_buckets = current_account.buckets.where(account_type: "Income")
+    @spending_buckets = current_account.buckets.where(account_type: [ "Spending", "Savings" ])
+    @virtual_buckets = current_account.buckets.where.not(account_type: "Real")
+  end
+
+  def set_form_type
+    @form_type = action_name
   end
 
   def entry_params
     params.expect(entry: [ :date, :currency, :amount, :debit_account_id, :credit_account_id ])
+  end
+
+  def return_action
+    return :new unless params[:entry][:form_type]
+    return :new unless FORM_TYPES.include? params[:entry][:form_type].to_sym
+
+    params[:entry][:form_type].to_sym
   end
 end

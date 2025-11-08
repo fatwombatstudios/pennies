@@ -18,11 +18,19 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :application, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <%= yield %>
+
+    <br>
+    <br>
+
+    <nav>
+      <%= link_to "List Buckets", buckets_path %>
+      <%= link_to "List Transactions", entries_path %>
+    </nav>
   </body>
 </html>
