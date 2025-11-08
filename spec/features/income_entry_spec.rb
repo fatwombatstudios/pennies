@@ -57,4 +57,15 @@ RSpec.describe "Income Entries", type: :feature do
 
     expect(page).to have_content "prohibited this entry from being saved"
   end
+
+  scenario "user cannot see another account's buckets" do
+    other_user = create :user
+    other_bank = create :bucket, name: "Other Bank", account_type: :real, account: other_user.account
+    other_income = create :bucket, name: "Other Income", account_type: :income, account: other_user.account
+
+    visit income_entries_path
+
+    expect(page).not_to have_select("Deposit To (Bank Account)", with_options: [ "Other Bank" ])
+    expect(page).not_to have_select("Income Category", with_options: [ "Other Income" ])
+  end
 end

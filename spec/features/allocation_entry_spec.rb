@@ -110,4 +110,17 @@ RSpec.describe "Allocation Entries", type: :feature do
     currency_field = find_field("Currency")
     expect(currency_field.value).to eq("EUR")
   end
+
+  scenario "user cannot see another account's buckets" do
+    other_user = create :user
+    other_income = create :bucket, name: "Other Salary", account_type: :income, account: other_user.account
+    other_spending = create :bucket, name: "Other Groceries", account_type: :spending, account: other_user.account
+
+    visit allocation_entries_path
+
+    expect(page).not_to have_select("Transfer From", with_options: [ "Other Salary" ])
+    expect(page).not_to have_select("Transfer From", with_options: [ "Other Groceries" ])
+    expect(page).not_to have_select("Transfer To", with_options: [ "Other Salary" ])
+    expect(page).not_to have_select("Transfer To", with_options: [ "Other Groceries" ])
+  end
 end

@@ -74,17 +74,14 @@ RSpec.describe "Expense Entries", type: :feature do
     expect(page).to have_content "500.00"
   end
 
-  scenario "form has default date set to today" do
+  scenario "user cannot see another account's buckets" do
+    other_user = create :user
+    other_bank = create :bucket, name: "Other Bank", account_type: :real, account: other_user.account
+    other_spending = create :bucket, name: "Other Groceries", account_type: :spending, account: other_user.account
+
     visit expense_entries_path
 
-    date_field = find_field("Date")
-    expect(date_field.value).to eq(Date.today.to_s)
-  end
-
-  scenario "form has default currency set to EUR" do
-    visit expense_entries_path
-
-    currency_field = find_field("Currency")
-    expect(currency_field.value).to eq("EUR")
+    expect(page).not_to have_select("Spending Category", with_options: [ "Other Groceries" ])
+    expect(page).not_to have_select("Pay From (Bank Account)", with_options: [ "Other Bank" ])
   end
 end

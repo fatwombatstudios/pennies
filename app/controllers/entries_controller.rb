@@ -1,11 +1,12 @@
 class EntriesController < ApplicationController
   before_action :must_be_signed_in
   before_action :set_buckets
+  before_action :set_bucket_collections, only: %i[ income expense allocation create ]
   before_action :set_entry, only: %i[ show edit update ]
 
   # GET /entries or /entries.json
   def index
-    @entries = Entry.all
+    @entries = current_account.entries
   end
 
   # GET /entries/1 or /entries/1.json
@@ -21,19 +22,14 @@ class EntriesController < ApplicationController
 
   def income
     @entry = Entry.new
-    @real_accounts = current_account.buckets.where(account_type: "Real")
-    @income_buckets = current_account.buckets.where(account_type: "Income")
   end
 
   def expense
     @entry = Entry.new
-    @real_accounts = current_account.buckets.where(account_type: "Real")
-    @spending_buckets = current_account.buckets.where(account_type: [ "Spending", "Savings" ])
   end
 
   def allocation
     @entry = Entry.new
-    @virtual_buckets = current_account.buckets.where.not(account_type: "Real")
   end
 
   def create
@@ -46,18 +42,12 @@ class EntriesController < ApplicationController
         # Re-render the appropriate form based on hidden form_type field
         case params[:entry][:form_type]
         when "income"
-          @real_accounts = current_account.buckets.where(account_type: "Real")
-          @income_buckets = current_account.buckets.where(account_type: "Income")
           format.html { render :income, status: :unprocessable_entity }
         when "expense"
-          @real_accounts = current_account.buckets.where(account_type: "Real")
-          @spending_buckets = current_account.buckets.where(account_type: [ "Spending", "Savings" ])
           format.html { render :expense, status: :unprocessable_entity }
         when "allocation"
-          @virtual_buckets = current_account.buckets.where.not(account_type: "Real")
           format.html { render :allocation, status: :unprocessable_entity }
         else
-          @buckets = current_account.buckets
           format.html { render :new, status: :unprocessable_entity }
         end
       end
@@ -77,11 +67,18 @@ class EntriesController < ApplicationController
   private
 
   def set_entry
-    @entry = Entry.find(params.expect(:id))
+    @entry = current_account.entries.find(params.expect(:id))
   end
 
   def set_buckets
-    @buckets = Bucket.all
+    @buckets = current_account.buckets
+  end
+
+  def set_bucket_collections
+    @real_accounts = current_account.buckets.where(account_type: "Real")
+    @income_buckets = current_account.buckets.where(account_type: "Income")
+    @spending_buckets = current_account.buckets.where(account_type: [ "Spending", "Savings" ])
+    @virtual_buckets = current_account.buckets.where.not(account_type: "Real")
   end
 
   def entry_params
