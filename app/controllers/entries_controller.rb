@@ -4,12 +4,10 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update ]
   before_action :set_new_entry, execpt: %i[ show edit update create]
 
-  # GET /entries or /entries.json
   def index
     @entries = current_account.entries
   end
 
-  # GET /entries/1 or /entries/1.json
   def show
   end
 
