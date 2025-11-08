@@ -1,0 +1,39 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "6add219e38afd5483c964e68135829a8b5f6c9201ca326b76cf11c6035365601",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/entries/show.html.erb",
+      "line": 3,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => current_account.entries.find(params.expect(:id)), { :locals => ({ :brakemanunresolvedmodel => current_account.entries.find(params.expect(:id)) }) })",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "EntriesController",
+          "method": "show",
+          "line": 15,
+          "file": "app/controllers/entries_controller.rb",
+          "rendered": {
+            "name": "entries/show",
+            "file": "app/views/entries/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "entries/show"
+      },
+      "user_input": "params.expect(:id)",
+      "confidence": "Weak",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    }
+  ],
+  "brakeman_version": "7.1.1"
+}
