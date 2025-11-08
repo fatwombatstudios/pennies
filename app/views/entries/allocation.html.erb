@@ -1,0 +1,56 @@
+<h1>Allocate Between Buckets</h1>
+
+<%= form_with(model: @entry, url: entries_path) do |form| %>
+  <% if @entry.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+        <% @entry.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :form_type, value: "allocation" %>
+
+  <div>
+    <%= form.label :amount, "Allocation Amount", style: "display: block" %>
+    <%= form.number_field :amount, step: 0.01, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :debit_account_id, "Transfer From", style: "display: block" %>
+    <%= form.select :debit_account_id,
+        @virtual_buckets.collect { |a| [a.name, a.id] },
+        { prompt: "Select source bucket" } %>
+  </div>
+
+  <div>
+    <%= form.label :credit_account_id, "Transfer To", style: "display: block" %>
+    <%= form.select :credit_account_id,
+        @virtual_buckets.collect { |a| [a.name, a.id] },
+        { prompt: "Select destination bucket" } %>
+  </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date, value: Date.today %>
+  </div>
+
+  <div>
+    <%= form.label :currency, style: "display: block" %>
+    <%= form.text_field :currency, value: "EUR" %>
+  </div>
+
+  <div>
+    <%= form.submit "Allocate Funds" %>
+  </div>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to entries", entries_path %>
+</div>

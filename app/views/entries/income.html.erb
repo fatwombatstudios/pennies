@@ -1,0 +1,56 @@
+<h1>Record Income</h1>
+
+<%= form_with(model: @entry, url: entries_path) do |form| %>
+  <% if @entry.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+        <% @entry.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :form_type, value: "income" %>
+
+  <div>
+    <%= form.label :amount, "Income Amount", style: "display: block" %>
+    <%= form.number_field :amount, step: 0.01, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :debit_account_id, "Deposit To (Bank Account)", style: "display: block" %>
+    <%= form.select :debit_account_id,
+        @real_accounts.collect { |a| [a.name, a.id] },
+        { prompt: "Select bank account" } %>
+  </div>
+
+  <div>
+    <%= form.label :credit_account_id, "Income Category", style: "display: block" %>
+    <%= form.select :credit_account_id,
+        @income_buckets.collect { |a| [a.name, a.id] },
+        { prompt: "Select income category" } %>
+  </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date, value: Date.today %>
+  </div>
+
+  <div>
+    <%= form.label :currency, style: "display: block" %>
+    <%= form.text_field :currency, value: "EUR" %>
+  </div>
+
+  <div>
+    <%= form.submit "Record Income" %>
+  </div>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to entries", entries_path %>
+</div>

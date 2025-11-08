@@ -19,14 +19,47 @@ class EntriesController < ApplicationController
   def edit
   end
 
+  def income
+    @entry = Entry.new
+    @real_accounts = current_account.buckets.where(account_type: "Real")
+    @income_buckets = current_account.buckets.where(account_type: "Income")
+  end
+
+  def expense
+    @entry = Entry.new
+    @real_accounts = current_account.buckets.where(account_type: "Real")
+    @spending_buckets = current_account.buckets.where(account_type: [ "Spending", "Savings" ])
+  end
+
+  def allocation
+    @entry = Entry.new
+    @virtual_buckets = current_account.buckets.where.not(account_type: "Real")
+  end
+
   def create
     @entry = Entry.new(entry_params)
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to entries_path, notice: "Entry was successfully created." }
+        format.html { redirect_to entries_path, notice: entry_success_message(params[:entry][:form_type]) }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        # Re-render the appropriate form based on hidden form_type field
+        case params[:entry][:form_type]
+        when "income"
+          @real_accounts = current_account.buckets.where(account_type: "Real")
+          @income_buckets = current_account.buckets.where(account_type: "Income")
+          format.html { render :income, status: :unprocessable_entity }
+        when "expense"
+          @real_accounts = current_account.buckets.where(account_type: "Real")
+          @spending_buckets = current_account.buckets.where(account_type: [ "Spending", "Savings" ])
+          format.html { render :expense, status: :unprocessable_entity }
+        when "allocation"
+          @virtual_buckets = current_account.buckets.where.not(account_type: "Real")
+          format.html { render :allocation, status: :unprocessable_entity }
+        else
+          @buckets = current_account.buckets
+          format.html { render :new, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -53,5 +86,14 @@ class EntriesController < ApplicationController
 
   def entry_params
     params.expect(entry: [ :date, :currency, :amount, :debit_account_id, :credit_account_id ])
+  end
+
+  def entry_success_message(form_type)
+    case form_type
+    when "income" then "Income recorded successfully."
+    when "expense" then "Expense recorded successfully."
+    when "allocation" then "Allocation completed successfully."
+    else "Entry was successfully created."
+    end
   end
 end
