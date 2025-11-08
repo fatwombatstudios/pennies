@@ -24,5 +24,13 @@
 
   <body>
     <%= yield %>
+
+    <br>
+    <br>
+
+    <nav>
+      <%= link_to "List Buckets", buckets_path %>
+      <%= link_to "List Transactions", entries_path %>
+    </nav>
   </body>
 </html>
