@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
   before_action :must_be_signed_in
   before_action :set_buckets
   before_action :set_entry, only: %i[ show edit update ]
+  before_action :set_new_entry, execpt: %i[ show edit update create]
 
   # GET /entries or /entries.json
   def index
@@ -13,29 +14,23 @@ class EntriesController < ApplicationController
   end
 
   def new
-    @entry = Entry.new
   end
 
   def edit
   end
 
   def income
-    @entry = Entry.new
   end
 
   def expense
-    @entry = Entry.new
   end
 
   def allocation
-    @entry = Entry.new
   end
 
   def create
-    @entry = Entry.new(entry_params)
-
     respond_to do |format|
-      if @entry.save
+      if @entry.update(entry_params)
         msg = "#{(params[:entry][:form_type] || "entry").capitalize} recorded successfully"
         format.html { redirect_to entries_path, notice: msg }
       else
@@ -59,6 +54,10 @@ class EntriesController < ApplicationController
 
   def set_entry
     @entry = current_account.entries.find(params.expect(:id))
+  end
+
+  def set_new_entry
+    @entry = Entry.new account: current_account
   end
 
   def set_buckets
