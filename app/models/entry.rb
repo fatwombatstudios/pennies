@@ -14,7 +14,7 @@ class Entry < ApplicationRecord
     return :income if debit_account.real? && credit_account.virtual?
     return :expense if debit_account.virtual? && credit_account.real?
 
-    :allocation
+    :budget
   end
 
   private

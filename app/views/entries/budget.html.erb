@@ -1,4 +1,4 @@
-<h1>Allocate Between Buckets</h1>
+<h1>Budget Between Buckets</h1>
 
 <%= form_with(model: @entry, url: entries_path) do |form| %>
   <% if @entry.errors.any? %>
@@ -13,10 +13,10 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :form_type, value: "allocation" %>
+  <%= form.hidden_field :form_type, value: "budget" %>
 
   <div>
-    <%= form.label :amount, "Allocation Amount", style: "display: block" %>
+    <%= form.label :amount, "Budget Amount", style: "display: block" %>
     <%= form.number_field :amount, step: 0.01, required: true %>
   </div>
 
@@ -41,7 +41,7 @@
   </div>
 
   <div>
-    <%= form.submit "Allocate Funds" %>
+    <%= form.submit "Budget Funds" %>
   </div>
 <% end %>
 

@@ -23,7 +23,7 @@ class EntriesController < ApplicationController
   def expense
   end
 
-  def allocation
+  def budget
   end
 
   def create
