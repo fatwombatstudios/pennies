@@ -22,16 +22,12 @@
 
   <div>
     <%= form.label :debit_account_id, "Transfer From", style: "display: block" %>
-    <%= form.select :debit_account_id,
-        @virtual_buckets.collect { |a| [a.name, a.id] },
-        { prompt: "Select source bucket" } %>
+    <%= form.select :debit_account_id, @virtual_buckets.collect { |a| [a.name, a.id] } %>
   </div>
 
   <div>
     <%= form.label :credit_account_id, "Transfer To", style: "display: block" %>
-    <%= form.select :credit_account_id,
-        @virtual_buckets.collect { |a| [a.name, a.id] },
-        { prompt: "Select destination bucket" } %>
+    <%= form.select :credit_account_id, @virtual_buckets.collect { |a| [a.name, a.id] } %>
   </div>
 
   <div>

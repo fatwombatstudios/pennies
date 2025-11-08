@@ -23,15 +23,13 @@
   <div>
     <%= form.label :debit_account_id, "Spending Category", style: "display: block" %>
     <%= form.select :debit_account_id,
-        @spending_buckets.collect { |a| [a.name, a.id] },
-        { prompt: "Select category" } %>
+        @spending_buckets.collect { |a| [a.name, a.id] } %>
   </div>
 
   <div>
     <%= form.label :credit_account_id, "Pay From (Bank Account)", style: "display: block" %>
     <%= form.select :credit_account_id,
-        @real_accounts.collect { |a| [a.name, a.id] },
-        { prompt: "Select bank account" } %>
+        @real_accounts.collect { |a| [a.name, a.id] } %>
   </div>
 
   <div>
