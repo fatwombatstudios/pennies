@@ -122,3 +122,9 @@ Uses modern Rails conventions with:
 - Docker support via Dockerfile
 - RuboCop for code style
 - GitHub Actions for CI/CD
+
+## Instructions for Agents
+
+- always lint after making any changes with `bin/rubocop -f github`
+- always run tests after any work with `bin/rails db:test:prepare && bundle exec rspec`
+- when in CLI mode, always start new feature in a new git worktree in a `.trees` folder
