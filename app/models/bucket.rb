@@ -6,7 +6,7 @@ class Bucket < ApplicationRecord
 
   after_initialize :set_defaults
 
-  enum :account_type, { real: "Real", virtual: "Virtual" }
+  enum :account_type, { income: "Income", savings: "Savings", spending: "Spending", real: "Real" }
 
   def balance
     d = debits.map { |e| e.amount }.sum
@@ -15,9 +15,13 @@ class Bucket < ApplicationRecord
     virtual? ? c - d : d - c
   end
 
+  def virtual?
+    income? || savings? || spending?
+  end
+
   private
 
   def set_defaults
-    self.account_type ||= :virtual
+    self.account_type ||= :spending
   end
 end

@@ -35,6 +35,6 @@ RSpec.describe "Buckets", type: :feature do
     expect(page).to have_content "Buckets"
     expect(page).to have_content "Groceries"
     expect(page).to have_content "For food and drink"
-    expect(page).to have_content "Virtual"
+    expect(page).to have_content "Spending"
   end
 end
