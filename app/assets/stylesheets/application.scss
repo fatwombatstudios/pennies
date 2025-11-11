@@ -3,15 +3,16 @@
 $breakpoint-desktop: 768px;
 
 :root {
-  --color-pink-dark: #fbb4ae;
+  --color-pink-mid: #fbb4ae;
   --color-pink-light: #fee9e7;
-  --color-blue-dark: #b3cde3;
+  --color-blue-dark: #5a6772;
+  --color-blue-mid: #b3cde3;
   --color-blue-light: #e8f0f7;
-  --color-green-dark: #ccebc5;
+  --color-green-mid: #ccebc5;
   --color-green-light: #f0f9ee;
-  --color-lilac-dark: #decbe4;
+  --color-lilac-mid: #decbe4;
   --color-lilac-light: #f5eff7;
-  --color-yellow-dark: #fed9a6;
+  --color-yellow-mid: #fed9a6;
   --color-yellow-light: #fff4e4;
 }
 
@@ -33,6 +34,12 @@ $breakpoint-desktop: 768px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 body {
@@ -53,5 +60,26 @@ body {
 
 .card {
   padding: 12px;
+  color: var(--color-blue-dark);
   background-color: var(--color-blue-light);
+}
+
+.play {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.table {
+  .row {
+    @include flow-right;
+    gap: 12px;
+  }
+  .header .cell {
+    font-weight: 600;
+  }
+  .cell {
+    min-width: 6rem;
+  }
 }

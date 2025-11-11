@@ -1,22 +1,20 @@
-<table id="entries">
-  <tr>
-    <th>Date</th>
-    <th></th>
-    <th>Amount</th>
-    <th></th>
-    <th>Debit</th>
-    <th>Credit</th>
-    <th></th>
-  </tr>
+<div id="entries" class="table">
+  <div class="header row">
+    <div class="cell">Date</div>
+    <div class="cell">Amount</div>
+    <div class="cell">Type</div>
+    <div class="cell">Debit</div>
+    <div class="cell">Credit</div>
+    <div class="cell"></div>
+  </div>
   <% entries.each do |entry| %>
-  <tr>
-    <td><%= entry.date.strftime "%d %b %y" %></td>
-    <td><%= entry.currency %></td>
-    <td><%= entry.amount %></td>
-    <td><%= entry.entry_type %></td>
-    <td><%= entry.debit_account.name %></td>
-    <td><%= entry.credit_account.name %></td>
-    <td><%= link_to "show", entry %></td>
-  </tr>
+  <div class="row">
+    <div class="cell"><%= entry.date.strftime "%d %b %y" %></div>
+    <div class="cell"><%= number_to_currency entry.amount %></div>
+    <div class="cell"><%= entry.entry_type %></div>
+    <div class="cell"><%= entry.debit_account.name %></div>
+    <div class="cell"><%= entry.credit_account.name %></div>
+    <div class="cell"><%= link_to "show", entry %></div>
+  </div>
   <% end %>
-</table>
+</div>
