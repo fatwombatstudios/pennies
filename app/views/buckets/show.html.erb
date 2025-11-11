@@ -5,18 +5,25 @@
 
 <div id="<%= dom_id @bucket %>" class="flow-down">
   <div class="card">
-    <h1 class="play"><%= @bucket.name %></h1>
-    <div class="amount"><%= number_to_currency @bucket.balance %></div>
+    <div class="flex-right space-between">
+      <h1 class="play"><%= @bucket.name %></h1>
+      <div class="play"><%= number_to_currency @bucket.balance %></div>
+    </div>
+    <div class="flex-right space-between">
+      <div><%= @bucket.description %></div>
+      <div>#<%= @bucket.account_type %></div>
+    </div>
   </div>
-
-  <p><%= @bucket.description %></p>
 </div>
 
 <br>
 
 <div>
-  <%= link_to "Edit", edit_bucket_path(@bucket) %> |
-  <%= link_to "Transfer", edit_bucket_path(@bucket) %>
+  <%= link_to("Income", income_entries_path) if @bucket.income? %>
+  <%= link_to("Transfer", budget_entries_path(@bucket)) if @bucket.spending? || @bucket.savings? %>
+  <%= link_to("Spend", expense_entries_path(@bucket)) if @bucket.spending? || @bucket.savings? %>
+  <%= link_to("Move", move_entries_path) if @bucket.real? %>
+  <%= link_to "Edit", edit_bucket_path(@bucket) %>
 </div>
 
 <br>

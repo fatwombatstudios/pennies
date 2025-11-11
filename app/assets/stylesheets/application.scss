@@ -16,18 +16,33 @@ $breakpoint-desktop: 768px;
   --color-yellow-light: #fff4e4;
 }
 
-@mixin flow-down {
+@mixin flex-down {
   display: flex;
   flex-direction: column;
 }
 
-@mixin flow-right {
+@mixin flex-right {
   display: flex;
   flex-direction: row;
 }
 
 @mixin full-height {
   min-height: 100vh;
+}
+
+.flex-right {
+  @include flex-right;
+  gap: 1rem;
+}
+.flex-down {
+  @include flex-down;
+  gap: 1rem;
+}
+.space-between {
+  justify-content: space-between;
+}
+.gap {
+  gap: 1rem;
 }
 
 * {
@@ -43,11 +58,11 @@ $breakpoint-desktop: 768px;
 }
 
 body {
-  @include flow-right;
+  @include flex-right;
   gap: 24px;
 
   nav.main {
-    @include flow-down;
+    @include flex-down;
     @include full-height;
     padding: 24px;
     background-color: var(--color-pink-light);
@@ -73,7 +88,7 @@ body {
 
 .table {
   .row {
-    @include flow-right;
+    @include flex-right;
     gap: 12px;
   }
   .header .cell {
@@ -81,5 +96,32 @@ body {
   }
   .cell {
     min-width: 6rem;
+  }
+}
+
+form {
+  @include flex-down;
+  gap: 12px;
+
+  label {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  input[type="text"],
+  input[type="submit"],
+  select,
+  button {
+    padding: 3px 6px;
+  }
+}
+
+.bucket-list {
+  margin: 24px 0;
+  @include flex-down;
+  gap: 24px;
+
+  .card {
+    min-width: 250px;
   }
 }

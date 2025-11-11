@@ -1,26 +1,28 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Buckets" %>
-
 <h1>Buckets</h1>
-
-<table id="buckets">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Type</th>
-    <th></th>
-  </tr>
-  <% @buckets.each do |bucket| %>
-  <tr>
-    <td><%= bucket.name %></td>
-    <td><%= bucket.description %></td>
-    <td><%= Bucket.account_types[bucket.account_type] %></td>
-    <td><%= link_to "show", bucket %></td>
-  </tr>
-  <% end %>
-</table>
+<p><%= link_to "New bucket", new_bucket_path %></p>
 
 <br>
+<div>
+  <%= link_to "All", buckets_path %>
+  <%= link_to "Income", buckets_path(type: :income) %>
+  <%= link_to "Savings", buckets_path(type: :savings) %>
+  <%= link_to "Spending", buckets_path(type: :spending) %>
+  <%= link_to "Bank Accounts", buckets_path(type: :real) %>
+</div>
+<br>
 
-<%= link_to "New bucket", new_bucket_path %>
+<div class="bucket-list">
+  <% @buckets.each do |bucket| %>
+  <div class="card">
+    <div class="flex-right space-between">
+      <h1 class="play"><%= bucket.name %></h1>
+      <div class="play"><%= number_to_currency bucket.balance %></div>
+    </div>
+    <div class="flex-right space-between">
+      <div class="type"><a href="<%= bucket_path(bucket) %>">#<%= bucket.account_type %></a></div>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -3,7 +3,11 @@ class BucketsController < ApplicationController
   before_action :set_bucket, only: %i[ show edit update ]
 
   def index
-    @buckets = Bucket.all
+    filter = params[:type]
+
+    @buckets = filter.nil? ?
+      current_account.buckets :
+      current_account.buckets.where(account_type: filter.to_sym)
   end
 
   def show
