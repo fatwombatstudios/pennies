@@ -1,0 +1,20 @@
+<div id="entries" class="table">
+  <div class="header row">
+    <div class="cell">Date</div>
+    <div class="cell">Amount</div>
+    <div class="cell">Type</div>
+    <div class="cell">Debit</div>
+    <div class="cell">Credit</div>
+    <div class="cell"></div>
+  </div>
+  <% entries.each do |entry| %>
+  <div class="row">
+    <div class="cell"><%= entry.date.strftime "%d %b %y" %></div>
+    <div class="cell"><%= number_to_currency entry.amount %></div>
+    <div class="cell"><%= entry.entry_type %></div>
+    <div class="cell"><%= entry.debit_account.name %></div>
+    <div class="cell"><%= entry.credit_account.name %></div>
+    <div class="cell"><%= link_to "show", entry %></div>
+  </div>
+  <% end %>
+</div>

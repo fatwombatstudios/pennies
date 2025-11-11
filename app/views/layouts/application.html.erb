@@ -13,6 +13,10 @@
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Luckiest+Guy&display=swap" rel="stylesheet">
+
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -23,14 +27,17 @@
   </head>
 
   <body>
-    <%= yield %>
-
-    <br>
-    <br>
-
-    <nav>
-      <%= link_to "List Buckets", buckets_path %>
-      <%= link_to "List Transactions", entries_path %>
+    <nav class="main">
+      <%= link_to "Pennies", "/" %>
+      <%= link_to "Earn", income_entries_path %>
+      <%= link_to "Allocate", move_entries_path %>
+      <%= link_to "Spend", expense_entries_path %>
+      <%= link_to "Buckets", buckets_path %>
+      <%= link_to "Transactions", entries_path %>
     </nav>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

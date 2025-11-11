@@ -79,7 +79,7 @@ RSpec.describe "Move Entries", type: :feature do
     click_on "Move Funds"
 
     expect(page).to have_content "Move recorded successfully"
-    expect(page).to have_content "1000.0"
+    expect(page).to have_content "$1,000.00"
   end
 
   scenario "validation prevents same account for debit and credit" do

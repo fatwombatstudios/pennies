@@ -1,11 +1,8 @@
-<% content_for :title, "Editing bucket" %>
+<div class="breadcrumbs"><%= link_to "Buckets", buckets_path %> > <%= @bucket.name %></div>
 
-<h1>Editing bucket</h1>
-
-<%= render "form", bucket: @bucket %>
-
+<p style="color: green"><%= notice %></p>
 <br>
 
-<div>
-  <%= link_to "Back to buckets", buckets_path %>
-</div>
+<h1>Edit Your Bucket</h1>
+
+<%= render "form", bucket: @bucket %>

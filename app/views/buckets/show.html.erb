@@ -1,26 +1,31 @@
-<h1><%= @bucket.name %> Bucket</h1>
+<div class="breadcrumbs"><%= link_to "Buckets", buckets_path %> > <%= @bucket.name %></div>
 
-  <p style="color: green"><%= notice %></p>
+<p style="color: green"><%= notice %></p>
+<br>
 
-<div id="<%= dom_id @bucket %>">
-  <p>
-    <strong>Name:</strong>
-    <%= @bucket.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @bucket.description %>
-  </p>
-
-  <p>
-    <strong>Account type:</strong>
-    <%= @bucket.account_type %>
-  </p>
-
+<div id="<%= dom_id @bucket %>" class="flow-down">
+  <div class="card">
+    <div class="flex-right space-between">
+      <h1 class="play"><%= @bucket.name %></h1>
+      <div class="play"><%= number_to_currency @bucket.balance %></div>
+    </div>
+    <div class="flex-right space-between">
+      <div><%= @bucket.description %></div>
+      <div>#<%= @bucket.account_type %></div>
+    </div>
+  </div>
 </div>
+
+<br>
 
 <div>
-  <%= link_to "Edit this bucket", edit_bucket_path(@bucket) %> |
-  <%= link_to "Back to buckets", buckets_path %>
+  <%= link_to("Income", income_entries_path) if @bucket.income? %>
+  <%= link_to("Transfer", budget_entries_path(@bucket)) if @bucket.spending? || @bucket.savings? %>
+  <%= link_to("Spend", expense_entries_path(@bucket)) if @bucket.spending? || @bucket.savings? %>
+  <%= link_to("Move", move_entries_path) if @bucket.real? %>
+  <%= link_to "Edit", edit_bucket_path(@bucket) %>
 </div>
+
+<br>
+
+<%= render "entries/entries", entries: @entries %>

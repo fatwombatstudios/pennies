@@ -1,1 +1,127 @@
 // Sassy
+
+$breakpoint-desktop: 768px;
+
+:root {
+  --color-pink-mid: #fbb4ae;
+  --color-pink-light: #fee9e7;
+  --color-blue-dark: #5a6772;
+  --color-blue-mid: #b3cde3;
+  --color-blue-light: #e8f0f7;
+  --color-green-mid: #ccebc5;
+  --color-green-light: #f0f9ee;
+  --color-lilac-mid: #decbe4;
+  --color-lilac-light: #f5eff7;
+  --color-yellow-mid: #fed9a6;
+  --color-yellow-light: #fff4e4;
+}
+
+@mixin flex-down {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-right {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin full-height {
+  min-height: 100vh;
+}
+
+.flex-right {
+  @include flex-right;
+  gap: 1rem;
+}
+.flex-down {
+  @include flex-down;
+  gap: 1rem;
+}
+.space-between {
+  justify-content: space-between;
+}
+.gap {
+  gap: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+body {
+  @include flex-right;
+  gap: 24px;
+
+  nav.main {
+    @include flex-down;
+    @include full-height;
+    padding: 24px;
+    background-color: var(--color-pink-light);
+  }
+
+  main {
+    padding: 24px;
+  }
+}
+
+.card {
+  padding: 12px;
+  color: var(--color-blue-dark);
+  background-color: var(--color-blue-light);
+}
+
+.play {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.table {
+  .row {
+    @include flex-right;
+    gap: 12px;
+  }
+  .header .cell {
+    font-weight: 600;
+  }
+  .cell {
+    min-width: 6rem;
+  }
+}
+
+form {
+  @include flex-down;
+  gap: 12px;
+
+  label {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  input[type="text"],
+  input[type="submit"],
+  select,
+  button {
+    padding: 3px 6px;
+  }
+}
+
+.bucket-list {
+  margin: 24px 0;
+  @include flex-down;
+  gap: 24px;
+
+  .card {
+    min-width: 250px;
+  }
+}
