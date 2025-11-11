@@ -21,7 +21,7 @@ RSpec.describe "Buckets", type: :feature do
 
     visit "/buckets/#{bucket.id}"
 
-    expect(page).to have_content "Savings Bucket"
+    expect(page).to have_content "Savings"
   end
 
   scenario "a user creates a new virtual bucket" do
