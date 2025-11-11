@@ -23,14 +23,14 @@
   </head>
 
   <body>
-    <%= yield %>
-
-    <br>
-    <br>
-
-    <nav>
-      <%= link_to "List Buckets", buckets_path %>
-      <%= link_to "List Transactions", entries_path %>
+    <nav class="main">
+      <%= link_to "Pennies", "/" %>
+      <%= link_to "Buckets", buckets_path %>
+      <%= link_to "Transactions", entries_path %>
     </nav>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

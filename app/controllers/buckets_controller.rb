@@ -7,6 +7,7 @@ class BucketsController < ApplicationController
   end
 
   def show
+    @entries = Entry.where(debit_account_id: @bucket.id).or(Entry.where(credit_account_id: @bucket.id))
   end
 
   def new

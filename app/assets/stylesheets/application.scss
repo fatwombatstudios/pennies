@@ -1,9 +1,57 @@
 // Sassy
 
+$breakpoint-desktop: 768px;
+
 :root {
-  --color-pink-dark: rgb(251, 180, 174);
-  --color-blue-dark: rgb(179, 205, 227);
-  --color-green-dark: rgb(204, 235, 197);
-  --color-lilac-dark: rgb(222, 203, 228);
-  --color-yellow-dark: rgb(254, 214, 166);
+  --color-pink-dark: #fbb4ae;
+  --color-pink-light: #fee9e7;
+  --color-blue-dark: #b3cde3;
+  --color-blue-light: #e8f0f7;
+  --color-green-dark: #ccebc5;
+  --color-green-light: #f0f9ee;
+  --color-lilac-dark: #decbe4;
+  --color-lilac-light: #f5eff7;
+  --color-yellow-dark: #fed9a6;
+  --color-yellow-light: #fff4e4;
+}
+
+@mixin flow-down {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flow-right {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin full-height {
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @include flow-right;
+  gap: 24px;
+
+  nav.main {
+    @include flow-down;
+    @include full-height;
+    padding: 24px;
+    background-color: var(--color-pink-light);
+  }
+
+  main {
+    padding: 24px;
+  }
+}
+
+.card {
+  padding: 12px;
+  background-color: var(--color-blue-light);
 }
