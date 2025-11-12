@@ -77,6 +77,11 @@ body {
   padding: 12px;
   color: var(--color-blue-dark);
   background-color: var(--color-blue-light);
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--color-blue-mid);
+  }
 }
 
 .play {
