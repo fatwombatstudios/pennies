@@ -11,6 +11,8 @@ class Entry < ApplicationRecord
   before_validation :credit_and_debit_must_be_different
 
   def action
+    return nil unless debit_account && credit_account
+
     return :income if debit_account.real? && credit_account.virtual?
     return :expense if debit_account.virtual? && credit_account.real?
 

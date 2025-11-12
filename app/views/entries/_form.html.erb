@@ -1,44 +1,64 @@
-<%= form_with(model: entry) do |form| %>
-  <% if entry.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+<div
+  data-controller="entry-form"
+  data-entry-form-real-buckets-value="<%= @real_accounts.map { |b| { id: b.id, name: b.name, real: true } }.to_json %>"
+  data-entry-form-income-buckets-value="<%= @income_buckets.map { |b| { id: b.id, name: b.name, real: false } }.to_json %>"
+  data-entry-form-spending-buckets-value="<%= @spending_buckets.map { |b| { id: b.id, name: b.name, real: false } }.to_json %>"
+  data-entry-form-virtual-buckets-value="<%= @virtual_buckets.map { |b| { id: b.id, name: b.name, real: false } }.to_json %>"
+>
+  <%= form_with(model: entry) do |form| %>
+    <% if entry.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
 
-      <ul>
-        <% entry.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% entry.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form.hidden_field :form_type, value: @form_type %>
+
+    <div>
+      <%= form.label :action, "Transaction Type", style: "display: block" %>
+      <%= form.select :action,
+          [["Select type...", ""], ["Income", "income"], ["Expense", "expense"], ["Transfer", "transfer"]],
+          {},
+          data: { entry_form_target: "action", action: "change->entry-form#updateForm" } %>
+    </div>
+
+    <div>
+      <%= form.label :date, style: "display: block" %>
+      <%= form.datetime_field :date %>
+    </div>
+
+    <div>
+      <%= form.label :currency, style: "display: block" %>
+      <%= form.text_field :currency %>
+    </div>
+
+    <div>
+      <%= form.label :amount, style: "display: block" %>
+      <%= form.text_field :amount %>
+    </div>
+
+    <div data-entry-form-target="firstSelectContainer" style="display: none;">
+      <label data-entry-form-target="firstLabel" for="entry_first_account" style="display: block">First Account</label>
+      <select id="entry_first_account" data-entry-form-target="firstSelect" data-action="change->entry-form#handleFromChange">
+        <option value="">Select...</option>
+      </select>
+    </div>
+
+    <div data-entry-form-target="secondSelectContainer" style="display: none;">
+      <label data-entry-form-target="secondLabel" for="entry_second_account" style="display: block">Second Account</label>
+      <select id="entry_second_account" data-entry-form-target="secondSelect">
+        <option value="">Select...</option>
+      </select>
+    </div>
+
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <%= form.hidden_field :form_type, value: @form_type %>
-
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.datetime_field :date %>
-  </div>
-
-  <div>
-    <%= form.label :currency, style: "display: block" %>
-    <%= form.text_field :currency %>
-  </div>
-
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div>
-    <%= form.label :debit_account_id, style: "display: block" %>
-    <%= form.select :debit_account_id, @buckets.collect { |a| [a.name, a.id] } %>
-  </div>
-
-  <div>
-    <%= form.label :credit_account_id, style: "display: block" %>
-    <%= form.select :credit_account_id, @buckets.collect { |a| [a.name, a.id] } %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
