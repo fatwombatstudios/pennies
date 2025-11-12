@@ -22,7 +22,7 @@ RSpec.describe EntryService do
         result = service.update(params)
 
         expect(result.success?).to be true
-        expect(result.entry).to eq(entry)
+        expect(result.data).to eq(entry)
         expect(entry.reload.amount).to eq(new_amount)
       end
 
@@ -32,11 +32,11 @@ RSpec.describe EntryService do
         expect(result.success?).to be true
       end
 
-      it 'returns the updated entry' do
+      it 'returns the updated entry as data' do
         result = service.update(params)
 
-        expect(result.entry).to eq(entry)
-        expect(result.entry.amount).to eq(new_amount)
+        expect(result.data).to eq(entry)
+        expect(result.data.amount).to eq(new_amount)
       end
 
       it 'returns nil errors' do
@@ -72,6 +72,12 @@ RSpec.describe EntryService do
         result = service.update(params)
 
         expect(result.success?).to be false
+      end
+
+      it 'returns the entry with errors as data' do
+        result = service.update(params)
+
+        expect(result.data).to eq(entry)
       end
 
       it 'returns errors' do

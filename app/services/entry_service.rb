@@ -1,9 +1,5 @@
 class EntryService
-  Result = Struct.new(:success, :entry, :errors) do
-    def success?
-      success
-    end
-  end
+  include ServiceSignature
 
   attr_reader :entry
 
@@ -12,12 +8,12 @@ class EntryService
   end
 
   def update(params)
-    entry.assign_attributes(params)
+    entry.assign_attributes params
 
     if entry.save
-      Result.new(true, entry, nil)
+      returns data: entry
     else
-      Result.new(false, entry, entry.errors)
+      returns success: false, data: entry, errors: entry.errors
     end
   end
 end
