@@ -38,7 +38,8 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if result.success?
-        msg = "#{(params[:entry][:form_type] || "entry").capitalize} recorded successfully"
+        action_type = params[:entry][:action] || params[:entry][:form_type] || "entry"
+        msg = "#{action_type.capitalize} recorded successfully"
         format.html { redirect_to entries_path, notice: msg }
       else
         format.html { render return_action, status: :unprocessable_entity }
@@ -73,7 +74,7 @@ class EntriesController < ApplicationController
     @buckets = current_account.buckets
     @real_accounts = current_account.buckets.where(account_type: "Real")
     @income_buckets = current_account.buckets.where(account_type: "Income")
-    @spending_buckets = current_account.buckets.where(account_type: [ "Spending", "Savings" ])
+    @spending_buckets = current_account.buckets.where(account_type: "Spending")
     @virtual_buckets = current_account.buckets.where.not(account_type: "Real")
   end
 
