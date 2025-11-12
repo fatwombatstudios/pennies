@@ -23,10 +23,10 @@ RSpec.describe "Entries Display", type: :feature do
     visit entries_path
 
     expect(page).to have_content "Income"
-    expect(page).to have_content "Bank Account → Salary"
+    expect(page).to have_content "Salary to Bank Account"
   end
 
-  scenario "expense entry displays virtual -> real bucket flow" do
+  scenario "expense entry displays virtual → real bucket flow" do
     create :entry,
       account: user.account,
       debit_account: groceries_bucket,
@@ -37,24 +37,24 @@ RSpec.describe "Entries Display", type: :feature do
     visit entries_path
 
     expect(page).to have_content "Expense"
-    expect(page).to have_content "Groceries → Bank Account"
+    expect(page).to have_content "Groceries from Bank Account"
   end
 
-  scenario "real-to-real transfer displays credit -> debit flow" do
+  scenario "real-to-real transfer displays credit → debit flow" do
     create :entry,
       account: user.account,
-      debit_account: bank_account,
-      credit_account: credit_card,
+      credit_account: bank_account,
+      debit_account: credit_card,
       amount: 500.00,
       date: Date.today
 
     visit entries_path
 
     expect(page).to have_content "Transfer"
-    expect(page).to have_content "Credit Card → Bank Account"
+    expect(page).to have_content "Bank Account to Credit Card"
   end
 
-  scenario "virtual-to-virtual transfer displays debit -> credit flow" do
+  scenario "virtual-to-virtual transfer displays debit → credit flow" do
     create :entry,
       account: user.account,
       debit_account: salary_bucket,
@@ -65,7 +65,7 @@ RSpec.describe "Entries Display", type: :feature do
     visit entries_path
 
     expect(page).to have_content "Transfer"
-    expect(page).to have_content "Salary → Groceries"
+    expect(page).to have_content "Salary to Groceries"
   end
 
   scenario "entries list shows all three action types correctly" do
@@ -94,9 +94,9 @@ RSpec.describe "Entries Display", type: :feature do
     visit entries_path
 
     # Check bucket flows which implicitly verifies the actions are correct
-    expect(page).to have_content "Bank Account → Salary"
-    expect(page).to have_content "Groceries → Bank Account"
-    expect(page).to have_content "Salary → Rent"
+    expect(page).to have_content "Salary to Bank Account"
+    expect(page).to have_content "Groceries from Bank Account"
+    expect(page).to have_content "Salary to Rent"
 
     # Verify amounts
     expect(page).to have_content "$2,500.00"

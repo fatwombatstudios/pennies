@@ -23,7 +23,7 @@ RSpec.describe "Transfer Entries", type: :feature do
 
     expect(page).to have_content "Transfer recorded successfully"
     expect(page).to have_content "500.0"
-    expect(page).to have_content "Savings Account → Checking Account"
+    expect(page).to have_content "Savings Account to Checking Account"
   end
 
   scenario "transfer form only shows real accounts for both debit and credit" do

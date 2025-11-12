@@ -23,7 +23,7 @@ RSpec.describe "Income Entries", type: :feature do
 
     expect(page).to have_content "Income recorded successfully"
     expect(page).to have_content "$2,500.00"
-    expect(page).to have_content "Bank Account → Salary"
+    expect(page).to have_content "Salary to Bank Account"
   end
 
   scenario "income form only shows real accounts for debit" do
