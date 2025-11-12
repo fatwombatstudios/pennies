@@ -5,7 +5,7 @@ RSpec.describe "Entries", type: :feature do
 
   before do
     create :bucket, name: "CIC", account_type: :real, account: user.account
-    create :bucket, name: "Savings", account_type: :savings, account: user.account
+    create :bucket, name: "Savings", account_type: :spending, account: user.account
 
     sign_in_as user
   end
