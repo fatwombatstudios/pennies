@@ -33,8 +33,11 @@ class EntriesController < ApplicationController
   end
 
   def create
+    service = EntryService.new(@entry)
+    result = service.update(entry_params)
+
     respond_to do |format|
-      if @entry.update(entry_params)
+      if result.success?
         msg = "#{(params[:entry][:form_type] || "entry").capitalize} recorded successfully"
         format.html { redirect_to entries_path, notice: msg }
       else
@@ -44,8 +47,11 @@ class EntriesController < ApplicationController
   end
 
   def update
+    service = EntryService.new(@entry)
+    result = service.update(entry_params)
+
     respond_to do |format|
-      if @entry.update(entry_params)
+      if result.success?
         format.html { redirect_to entries_path, notice: "Entry was successfully updated.", status: :see_other }
       else
         format.html { render :edit, status: :unprocessable_entity }
