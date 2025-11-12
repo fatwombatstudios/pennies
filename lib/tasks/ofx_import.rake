@@ -25,7 +25,7 @@ namespace :ofx do
 
   desc "Import both example OFX files"
   task import_examples: :environment do
-    [ "lib/ANZ CC.ofx", "lib/ANZ CQ.ofx" ].each do |file_path|
+    [ "lib/real/ANZ CC.ofx", "lib/real/ANZ CQ.ofx" ].each do |file_path|
       if File.exist?(file_path)
         importer = OfxImporterService.new(file_path)
         importer.parse

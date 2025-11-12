@@ -1,0 +1,43 @@
+<% content_for :title, "Upload OFX File" %>
+
+<h1>Upload OFX File</h1>
+
+<% if flash[:alert] %>
+  <div style="color: red; padding: 10px; margin-bottom: 20px; border: 1px solid red;">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<%= form_with url: process_upload_entries_path, method: :post, multipart: true do |form| %>
+  <div style="margin-bottom: 20px;">
+    <%= form.label :ofx_file, "Select OFX File:" %>
+    <br>
+    <%= form.file_field :ofx_file, accept: ".ofx", required: true, style: "margin-top: 5px;" %>
+    <p style="font-size: 0.9em; color: #666; margin-top: 5px;">
+      Choose an OFX (Open Financial Exchange) file exported from your bank or financial institution.
+    </p>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <%= form.label :real_account_id, "Assign to Real Account:" %>
+    <br>
+    <%= form.select :real_account_id,
+        @real_accounts.map { |b| [b.name, b.id] },
+        { prompt: "Select an account..." },
+        { required: true, style: "margin-top: 5px; padding: 5px;" } %>
+    <p style="font-size: 0.9em; color: #666; margin-top: 5px;">
+      All transactions will be assigned to this account. Income will be credited to "Unknown Income"
+      and expenses will be debited to "Unknown Expense".
+    </p>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <%= form.submit "Upload and Import", style: "padding: 10px 20px; cursor: pointer;" %>
+  </div>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to entries", entries_path %>
+</div>
