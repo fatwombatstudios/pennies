@@ -87,6 +87,7 @@ class EntriesController < ApplicationController
       :date,
       :currency,
       :amount,
+      :description,
       :action,
       :from_account_id,
       :to_account_id
