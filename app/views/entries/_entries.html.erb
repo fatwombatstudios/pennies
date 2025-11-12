@@ -11,7 +11,7 @@
   <div class="row">
     <div class="cell"><%= entry.date.strftime "%d %b %y" %></div>
     <div class="cell"><%= number_to_currency entry.amount %></div>
-    <div class="cell"><%= entry.entry_type %></div>
+    <div class="cell"><%= entry.action %></div>
     <div class="cell"><%= entry.debit_account.name %></div>
     <div class="cell"><%= entry.credit_account.name %></div>
     <div class="cell"><%= link_to "show", entry %></div>
