@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :entries do
     collection do
-      get :upload
-      post :process_upload
+      get "upload", to: "ofx_uploads#new"
+      post "upload", to: "ofx_uploads#create"
     end
   end
   resources :buckets, except: [ :destroy ]
