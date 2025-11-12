@@ -8,7 +8,7 @@ class EntriesController < ApplicationController
   before_action :set_form_type, only: FORM_TYPES
 
   def index
-    @entries = current_account.entries
+    @entries = current_account.entries.order(date: :desc)
   end
 
   def show

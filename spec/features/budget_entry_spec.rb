@@ -25,6 +25,7 @@ RSpec.describe "Budget Entries", type: :feature do
 
     expect(page).to have_content "Budget recorded successfully"
     expect(page).to have_content "300.00"
+    expect(page).to have_content "Salary → Groceries"
   end
 
   scenario "budget form only shows virtual buckets" do

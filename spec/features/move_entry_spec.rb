@@ -23,6 +23,7 @@ RSpec.describe "Move Entries", type: :feature do
 
     expect(page).to have_content "Move recorded successfully"
     expect(page).to have_content "500.0"
+    expect(page).to have_content "Savings Account → Checking Account"
   end
 
   scenario "move form only shows real accounts for both debit and credit" do
