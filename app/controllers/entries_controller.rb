@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  FORM_TYPES = %i[ new edit income expense budget move]
+  FORM_TYPES = %i[ new edit income expense budget transfer]
 
   before_action :must_be_signed_in
   before_action :set_buckets
@@ -29,7 +29,7 @@ class EntriesController < ApplicationController
   def budget
   end
 
-  def move
+  def transfer
   end
 
   def create

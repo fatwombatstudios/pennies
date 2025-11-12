@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     collection do
       get :income
       get :expense
-      get :move
+      get :transfer
       get :budget
     end
   end
