@@ -30,10 +30,12 @@ RSpec.describe "Entries", type: :feature do
     select "Expense", from: "Transaction Type"
     select "Savings", from: "Bucket"
     select "CIC", from: "From"
+    fill_in "Description", with: "Foo"
 
     click_on "Create Entry"
 
     expect(page).to have_content "999.99"
+    expect(page).to have_content "Foo"
   end
 
   scenario "a user creates an income entry", js: true do

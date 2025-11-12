@@ -45,6 +45,11 @@
       <%= form.text_field :amount %>
     </div>
 
+    <div>
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description, rows: 3 %>
+    </div>
+
     <div data-entry-form-target="firstSelectContainer" style="display: none;">
       <label data-entry-form-target="firstLabel" for="entry_first_account" style="display: block">First Account</label>
       <select id="entry_first_account" data-entry-form-target="firstSelect" data-action="change->entry-form#handleFromChange">
