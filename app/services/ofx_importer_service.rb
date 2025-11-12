@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "nokogiri"
+require "ox"
 
 # Service to import OFX (Open Financial Exchange) files and convert them to Entry format
 # Supports both bank accounts (BANKMSGSRSV1) and credit card accounts (CREDITCARDMSGSRSV1)
@@ -14,13 +14,13 @@ class OfxImporterService
 
   # Parse the OFX file and extract transactions
   def parse
-    doc = Nokogiri::XML(File.read(file_path))
+    doc = Ox.load(File.read(file_path), mode: :generic)
 
     # Extract account information
     account_info = extract_account_info(doc)
 
     # Extract transactions (STMTTRN elements)
-    doc.xpath("//STMTTRN").each do |trn|
+    find_elements(doc, "STMTTRN").each do |trn|
       transaction = parse_transaction(trn, account_info)
       @transactions << transaction if transaction
     end
@@ -57,25 +57,59 @@ class OfxImporterService
 
   private
 
+  # Helper method to find all elements with a given name recursively
+  def find_elements(node, name, results = [])
+    return results unless node.respond_to?(:nodes)
+
+    node.nodes.each do |child|
+      results << child if child.respond_to?(:value) && child.value == name
+      find_elements(child, name, results)
+    end
+
+    results
+  end
+
+  # Helper method to find first element with a given name
+  def find_element(node, name)
+    return nil unless node.respond_to?(:nodes)
+
+    node.nodes.each do |child|
+      return child if child.respond_to?(:value) && child.value == name
+      if (found = find_element(child, name))
+        return found
+      end
+    end
+
+    nil
+  end
+
+  # Get text content from an element
+  def element_text(node, name)
+    element = find_element(node, name)
+    return nil unless element&.respond_to?(:nodes)
+
+    element.nodes.find { |n| n.is_a?(String) }
+  end
+
   # Extract account information from the OFX document
   def extract_account_info(doc)
     info = {
-      currency: doc.at_xpath("//CURDEF")&.text || "AUD",
+      currency: element_text(doc, "CURDEF") || "AUD",
       account_type: nil,
       account_id: nil,
       bank_id: nil
     }
 
     # Check if it's a bank account
-    if (bank_acct = doc.at_xpath("//BANKACCTFROM"))
+    if (bank_acct = find_element(doc, "BANKACCTFROM"))
       info[:account_type] = :bank
-      info[:account_id] = bank_acct.at_xpath("ACCTID")&.text
-      info[:bank_id] = bank_acct.at_xpath("BANKID")&.text
-      info[:acct_type] = bank_acct.at_xpath("ACCTTYPE")&.text
+      info[:account_id] = element_text(bank_acct, "ACCTID")
+      info[:bank_id] = element_text(bank_acct, "BANKID")
+      info[:acct_type] = element_text(bank_acct, "ACCTTYPE")
     # Check if it's a credit card account
-    elsif (cc_acct = doc.at_xpath("//CCACCTFROM"))
+    elsif (cc_acct = find_element(doc, "CCACCTFROM"))
       info[:account_type] = :credit_card
-      info[:account_id] = cc_acct.at_xpath("ACCTID")&.text
+      info[:account_id] = element_text(cc_acct, "ACCTID")
     end
 
     info
@@ -83,11 +117,11 @@ class OfxImporterService
 
   # Parse a single transaction from STMTTRN element
   def parse_transaction(trn, account_info)
-    trntype = trn.at_xpath("TRNTYPE")&.text
-    amount = trn.at_xpath("TRNAMT")&.text&.to_f
-    date_posted = trn.at_xpath("DTPOSTED")&.text
-    fitid = trn.at_xpath("FITID")&.text
-    memo = trn.at_xpath("MEMO")&.text
+    trntype = element_text(trn, "TRNTYPE")
+    amount = element_text(trn, "TRNAMT")&.to_f
+    date_posted = element_text(trn, "DTPOSTED")
+    fitid = element_text(trn, "FITID")
+    memo = element_text(trn, "MEMO")
 
     return nil unless amount && date_posted
 
