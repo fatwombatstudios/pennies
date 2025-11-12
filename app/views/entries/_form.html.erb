@@ -4,6 +4,8 @@
   data-entry-form-income-buckets-value="<%= @income_buckets.map { |b| { id: b.id, name: b.name, real: false } }.to_json %>"
   data-entry-form-spending-buckets-value="<%= @spending_buckets.map { |b| { id: b.id, name: b.name, real: false } }.to_json %>"
   data-entry-form-virtual-buckets-value="<%= @virtual_buckets.map { |b| { id: b.id, name: b.name, real: false } }.to_json %>"
+  data-entry-form-initial-from-value="<%= entry.from_account_id %>"
+  data-entry-form-initial-to-value="<%= entry.to_account_id %>"
 >
   <%= form_with(model: entry) do |form| %>
     <% if entry.errors.any? %>
@@ -24,7 +26,7 @@
       <%= form.label :action, "Transaction Type", style: "display: block" %>
       <%= form.select :action,
           [["Select type...", ""], ["Income", "income"], ["Expense", "expense"], ["Transfer", "transfer"]],
-          {},
+          { selected: entry.action&.to_s },
           data: { entry_form_target: "action", action: "change->entry-form#updateForm" } %>
     </div>
 

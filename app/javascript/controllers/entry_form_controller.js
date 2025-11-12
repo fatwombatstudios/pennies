@@ -15,7 +15,9 @@ export default class extends Controller {
     realBuckets: Array,
     incomeBuckets: Array,
     spendingBuckets: Array,
-    virtualBuckets: Array
+    virtualBuckets: Array,
+    initialFrom: String,
+    initialTo: String
   }
 
   connect() {
@@ -48,8 +50,8 @@ export default class extends Controller {
     this.firstSelectTarget.name = "entry[from_account_id]"
     this.secondSelectTarget.name = "entry[to_account_id]"
 
-    this.populateSelect(this.firstSelectTarget, this.incomeBucketsValue)
-    this.populateSelect(this.secondSelectTarget, this.realBucketsValue)
+    this.populateSelect(this.firstSelectTarget, this.incomeBucketsValue, this.initialFromValue)
+    this.populateSelect(this.secondSelectTarget, this.realBucketsValue, this.initialToValue)
   }
 
   setupExpenseForm() {
@@ -60,8 +62,8 @@ export default class extends Controller {
     this.firstSelectTarget.name = "entry[from_account_id]"
     this.secondSelectTarget.name = "entry[to_account_id]"
 
-    this.populateSelect(this.firstSelectTarget, this.spendingBucketsValue)
-    this.populateSelect(this.secondSelectTarget, this.realBucketsValue)
+    this.populateSelect(this.firstSelectTarget, this.spendingBucketsValue, this.initialFromValue)
+    this.populateSelect(this.secondSelectTarget, this.realBucketsValue, this.initialToValue)
   }
 
   setupTransferForm() {
@@ -73,7 +75,7 @@ export default class extends Controller {
     this.secondSelectTarget.name = "entry[to_account_id]"
 
     // Initially show all buckets for "from" select
-    this.populateSelect(this.firstSelectTarget, [...this.realBucketsValue, ...this.virtualBucketsValue])
+    this.populateSelect(this.firstSelectTarget, [...this.realBucketsValue, ...this.virtualBucketsValue], this.initialFromValue)
 
     // Update "to" select based on "from" selection
     this.updateTransferToSelect()
@@ -87,23 +89,23 @@ export default class extends Controller {
     if (fromBucket) {
       if (fromBucket.real) {
         // From is real, so "to" must be real
-        this.populateSelect(this.secondSelectTarget, this.realBucketsValue)
+        this.populateSelect(this.secondSelectTarget, this.realBucketsValue, this.initialToValue)
       } else {
         // From is virtual, so "to" must be virtual
-        this.populateSelect(this.secondSelectTarget, this.virtualBucketsValue)
+        this.populateSelect(this.secondSelectTarget, this.virtualBucketsValue, this.initialToValue)
       }
     }
   }
 
-  populateSelect(select, buckets) {
-    const currentValue = select.value
+  populateSelect(select, buckets, initialValue = null) {
+    const valueToSelect = initialValue || select.value
     select.innerHTML = '<option value="">Select...</option>'
 
     buckets.forEach(bucket => {
       const option = document.createElement('option')
       option.value = bucket.id
       option.textContent = bucket.name
-      if (bucket.id === parseInt(currentValue)) {
+      if (bucket.id === parseInt(valueToSelect)) {
         option.selected = true
       }
       select.appendChild(option)
