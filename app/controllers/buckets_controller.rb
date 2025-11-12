@@ -6,8 +6,8 @@ class BucketsController < ApplicationController
     filter = params[:type]
 
     @buckets = filter.nil? ?
-      current_account.buckets :
-      current_account.buckets.where(account_type: filter.to_sym)
+      current_account.custom_buckets :
+      current_account.custom_buckets.where(account_type: filter.to_sym)
   end
 
   def show

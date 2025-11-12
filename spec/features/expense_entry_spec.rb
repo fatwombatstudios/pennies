@@ -24,6 +24,7 @@ RSpec.describe "Expense Entries", type: :feature do
 
     expect(page).to have_content "Expense recorded successfully"
     expect(page).to have_content "125.50"
+    expect(page).to have_content "Groceries from Bank Account"
   end
 
   scenario "expense form only shows spending/savings buckets for debit" do

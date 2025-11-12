@@ -10,12 +10,11 @@ class Entry < ApplicationRecord
   before_validation :must_have_an_account
   before_validation :credit_and_debit_must_be_different
 
-  def entry_type
+  def action
     return :income if debit_account.real? && credit_account.virtual?
     return :expense if debit_account.virtual? && credit_account.real?
-    return :transfer if debit_account.real? && credit_account.real?
 
-    :allocation
+    :transfer
   end
 
   private

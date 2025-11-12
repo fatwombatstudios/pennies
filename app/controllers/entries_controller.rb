@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  FORM_TYPES = %i[ new edit income expense budget move]
+  FORM_TYPES = %i[ new edit income expense budget transfer]
 
   before_action :must_be_signed_in
   before_action :set_buckets
@@ -8,7 +8,7 @@ class EntriesController < ApplicationController
   before_action :set_form_type, only: FORM_TYPES
 
   def index
-    @entries = current_account.entries
+    @entries = current_account.entries.order(date: :desc)
   end
 
   def show
@@ -29,12 +29,15 @@ class EntriesController < ApplicationController
   def budget
   end
 
-  def move
+  def transfer
   end
 
   def create
+    service = EntryService.new(@entry)
+    result = service.update(entry_params)
+
     respond_to do |format|
-      if @entry.update(entry_params)
+      if result.success?
         msg = "#{(params[:entry][:form_type] || "entry").capitalize} recorded successfully"
         format.html { redirect_to entries_path, notice: msg }
       else
@@ -44,8 +47,11 @@ class EntriesController < ApplicationController
   end
 
   def update
+    service = EntryService.new(@entry)
+    result = service.update(entry_params)
+
     respond_to do |format|
-      if @entry.update(entry_params)
+      if result.success?
         format.html { redirect_to entries_path, notice: "Entry was successfully updated.", status: :see_other }
       else
         format.html { render :edit, status: :unprocessable_entity }

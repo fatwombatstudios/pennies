@@ -102,6 +102,9 @@ body {
   .cell {
     min-width: 6rem;
   }
+  .cell.wide {
+    min-width: 12rem;
+  }
 }
 
 form {
