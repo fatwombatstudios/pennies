@@ -82,7 +82,7 @@ jobs:
         env:
           RAILS_ENV: test
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare && bundle exec rspec -t ~js
+        run: bin/rails db:test:prepare && bundle exec rspec -t ~@js
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v5
