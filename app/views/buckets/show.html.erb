@@ -20,8 +20,8 @@
 
 <div>
   <%= link_to("Income", income_entries_path) if @bucket.income? %>
-  <%= link_to("Transfer", budget_entries_path(@bucket)) if @bucket.spending? || @bucket.savings? %>
-  <%= link_to("Spend", expense_entries_path(@bucket)) if @bucket.spending? || @bucket.savings? %>
+  <%= link_to("Transfer", budget_entries_path(@bucket)) if @bucket.spending? %>
+  <%= link_to("Spend", expense_entries_path(@bucket)) if @bucket.spending? %>
   <%= link_to("Move", move_entries_path) if @bucket.real? %>
   <%= link_to "Edit", edit_bucket_path(@bucket) %>
 </div>

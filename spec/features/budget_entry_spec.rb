@@ -6,7 +6,7 @@ RSpec.describe "Budget Entries", type: :feature do
   let!(:salary_bucket) { create :bucket, name: "Salary", account_type: :income, account: user.account }
   let!(:groceries_bucket) { create :bucket, name: "Groceries", account_type: :spending, account: user.account }
   let!(:rent_bucket) { create :bucket, name: "Rent", account_type: :spending, account: user.account }
-  let!(:savings_bucket) { create :bucket, name: "Emergency Fund", account_type: :savings, account: user.account }
+  let!(:savings_bucket) { create :bucket, name: "Emergency Fund", account_type: :spending, account: user.account }
 
   before do
     sign_in_as user
