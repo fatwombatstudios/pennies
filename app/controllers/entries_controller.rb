@@ -87,12 +87,7 @@ class EntriesController < ApplicationController
       :date,
       :currency,
       :amount,
-      :debit_account_id,
-      :credit_account_id,
       :action,
-      :income_account_id,
-      :into_account_id,
-      :bucket_account_id,
       :from_account_id,
       :to_account_id
     ])

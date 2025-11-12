@@ -36,16 +36,18 @@ class EntryService
   end
 
   def transform_income_params(params)
-    params.except(:action, :income_account_id, :into_account_id).merge(
-      credit_account_id: params[:income_account_id],
-      debit_account_id: params[:into_account_id]
+    # Income: from (income bucket) is credited, to (real account) is debited
+    params.except(:action, :from_account_id, :to_account_id).merge(
+      credit_account_id: params[:from_account_id],
+      debit_account_id: params[:to_account_id]
     )
   end
 
   def transform_expense_params(params)
-    params.except(:action, :bucket_account_id, :from_account_id).merge(
-      debit_account_id: params[:bucket_account_id],
-      credit_account_id: params[:from_account_id]
+    # Expense: from (spending bucket) is debited, to (real account) is credited
+    params.except(:action, :from_account_id, :to_account_id).merge(
+      debit_account_id: params[:from_account_id],
+      credit_account_id: params[:to_account_id]
     )
   end
 

@@ -45,8 +45,8 @@ export default class extends Controller {
     this.firstLabelTarget.textContent = "Income"
     this.secondLabelTarget.textContent = "Into"
 
-    this.firstSelectTarget.name = "entry[income_account_id]"
-    this.secondSelectTarget.name = "entry[into_account_id]"
+    this.firstSelectTarget.name = "entry[from_account_id]"
+    this.secondSelectTarget.name = "entry[to_account_id]"
 
     this.populateSelect(this.firstSelectTarget, this.incomeBucketsValue)
     this.populateSelect(this.secondSelectTarget, this.realBucketsValue)
@@ -57,8 +57,8 @@ export default class extends Controller {
     this.firstLabelTarget.textContent = "Bucket"
     this.secondLabelTarget.textContent = "From"
 
-    this.firstSelectTarget.name = "entry[bucket_account_id]"
-    this.secondSelectTarget.name = "entry[from_account_id]"
+    this.firstSelectTarget.name = "entry[from_account_id]"
+    this.secondSelectTarget.name = "entry[to_account_id]"
 
     this.populateSelect(this.firstSelectTarget, this.spendingBucketsValue)
     this.populateSelect(this.secondSelectTarget, this.realBucketsValue)
