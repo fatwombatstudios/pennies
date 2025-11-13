@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   post "sign-in", to: "sessions#create"
   get "sign-out", to: "sessions#destroy", as: :sign_out
 
-  resources :entries
+  resources :entries do
+    collection do
+      get "upload", to: "ofx_uploads#new"
+      post "upload", to: "ofx_uploads#create"
+    end
+  end
   resources :buckets, except: [ :destroy ]
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)

@@ -6,6 +6,7 @@ gem "dartsass-rails", "~> 0.5.1"
 gem "importmap-rails"
 gem "jbuilder"
 gem "kamal", require: false
+gem "ox"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "rails", "~> 8.0.4"

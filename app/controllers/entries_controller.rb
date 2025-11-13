@@ -1,11 +1,9 @@
 class EntriesController < ApplicationController
-  FORM_TYPES = %i[ new edit income expense budget transfer]
-
   before_action :must_be_signed_in
   before_action :set_buckets
   before_action :set_new_entry
   before_action :set_this_entry, only: %i[ show edit update ]
-  before_action :set_form_type, only: FORM_TYPES
+  before_action :set_form_type, only: %i[ new edit ]
 
   def index
     @entries = current_account.entries.order(date: :desc)
@@ -18,18 +16,6 @@ class EntriesController < ApplicationController
   end
 
   def edit
-  end
-
-  def income
-  end
-
-  def expense
-  end
-
-  def budget
-  end
-
-  def transfer
   end
 
   def create
@@ -96,7 +82,7 @@ class EntriesController < ApplicationController
 
   def return_action
     return :new unless params[:entry][:form_type]
-    return :new unless FORM_TYPES.include? params[:entry][:form_type].to_sym
+    return :new unless [ :new, :edit ].include? params[:entry][:form_type].to_sym
 
     params[:entry][:form_type].to_sym
   end
