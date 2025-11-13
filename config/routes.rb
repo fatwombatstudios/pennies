@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   end
   resources :buckets, except: [ :destroy ]
 
+  # Budget allocation route
+  get "budget", to: "budget_allocations#new", as: :budget
+  post "budget", to: "budget_allocations#create"
+
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

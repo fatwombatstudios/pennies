@@ -1,0 +1,153 @@
+<% if @errors&.any? %>
+  <div style="color: red">
+    <h3>Errors occurred:</h3>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h1>Budget Allocation</h1>
+
+<%= form_with(url: budget_path, method: :post, data: { controller: "budget-allocation", budget_allocation_income_buckets_value: @income_buckets.to_json(only: [:id, :name], methods: [:balance]), budget_allocation_spending_buckets_value: @spending_buckets.to_json(only: [:id, :name, :description]) }) do |form| %>
+  <div class="form-section">
+    <label for="income_bucket_id">Select Income Bucket:</label>
+    <%= form.select :income_bucket_id,
+                    options_for_select(@income_buckets.map { |b| ["#{b.name} (#{number_to_currency(b.balance)})", b.id] }),
+                    { prompt: "Select income bucket..." },
+                    { class: "form-control",
+                      data: { budget_allocation_target: "incomeBucketSelect", action: "change->budget-allocation#incomeChanged" } } %>
+  </div>
+
+  <div class="form-section" data-budget-allocation-target="availableSection" style="display: none;">
+    <div class="available-display">
+      <h2>Available to Allocate:</h2>
+      <div class="available-amount" data-budget-allocation-target="availableAmount">$0.00</div>
+    </div>
+  </div>
+
+  <div class="form-section" data-budget-allocation-target="allocationsSection" style="display: none;">
+    <h2>Allocate to Spending Buckets:</h2>
+
+    <div class="allocations-grid">
+      <% @spending_buckets.each do |bucket| %>
+        <div class="allocation-row card">
+          <div class="bucket-info">
+            <strong><%= bucket.name %></strong>
+            <% if bucket.description.present? %>
+              <div class="bucket-description"><%= bucket.description %></div>
+            <% end %>
+            <div class="bucket-balance">Current: <%= number_to_currency(bucket.balance) %></div>
+          </div>
+          <div class="allocation-input">
+            <label for="allocation_<%= bucket.id %>">Amount:</label>
+            <%= form.number_field "allocations[#{bucket.id}]",
+                                 step: "0.01",
+                                 min: "0",
+                                 value: "0.00",
+                                 class: "form-control",
+                                 data: { bucket_id: bucket.id, budget_allocation_target: "allocationInput", action: "input->budget-allocation#calculateRemaining" } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-section" data-budget-allocation-target="submitSection" style="display: none;">
+    <%= form.submit "Assign", class: "btn btn-primary", data: { budget_allocation_target: "submitButton" } %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to "Back to Buckets", buckets_path %>
+</div>
+
+<style>
+  .form-section {
+    margin: 20px 0;
+  }
+
+  .available-display {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .available-amount {
+    font-size: 2em;
+    font-weight: bold;
+    color: #2c5282;
+  }
+
+  .allocations-grid {
+    display: grid;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .allocation-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .bucket-info {
+    flex: 1;
+  }
+
+  .bucket-description {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+  }
+
+  .bucket-balance {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 5px;
+  }
+
+  .allocation-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .allocation-input input {
+    width: 120px;
+  }
+
+  .form-control {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+  .btn-primary {
+    background-color: #2c5282;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: #2a4365;
+  }
+
+  .btn-primary:disabled {
+    background-color: #cbd5e0;
+    cursor: not-allowed;
+  }
+</style>
