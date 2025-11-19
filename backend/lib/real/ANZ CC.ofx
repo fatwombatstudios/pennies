@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?OFX OFXHEADER="200" VERSION="203" SECURITY="NONE" OLDFILEUID="NONE" NEWFILEUID="NONE"?>
+<OFX>
+  <SIGNONMSGSRSV1>
+    <SONRS>
+      <STATUS>
+        <CODE>0</CODE>
+        <SEVERITY>INFO</SEVERITY>
+      </STATUS>
+      <DTSERVER>20251113025029</DTSERVER>
+      <LANGUAGE>ENG</LANGUAGE>
+    </SONRS>
+  </SIGNONMSGSRSV1>
+  <CREDITCARDMSGSRSV1>
+    <CCSTMTTRNRS>
+      <TRNUID>1</TRNUID>
+      <STATUS>
+        <CODE>0</CODE>
+        <SEVERITY>INFO</SEVERITY>
+      </STATUS>
+      <CCSTMTRS>
+        <CURDEF>AUD</CURDEF>
+        <CCACCTFROM>
+          <ACCTID>4564680811527620</ACCTID>
+        </CCACCTFROM>
+        <BANKTRANLIST>
+          <DTSTART>20250716</DTSTART>
+          <DTEND>20251112</DTEND>
+          <STMTTRN>
+            <TRNTYPE>CREDIT</TRNTYPE>
+            <DTPOSTED>20251112000000</DTPOSTED>
+            <DTUSER>20251112000000</DTUSER>
+            <TRNAMT>2082.78</TRNAMT>
+            <FITID>202511120001</FITID>
+            <MEMO>PAYMENT THANKYOU 795286</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>CREDIT</TRNTYPE>
+            <DTPOSTED>20251111000000</DTPOSTED>
+            <DTUSER>20251111000000</DTUSER>
+            <TRNAMT>0.40</TRNAMT>
+            <FITID>202511110002</FITID>
+            <MEMO>TRANSPORTFORNSW TAP       SYDNEY</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>CREDIT</TRNTYPE>
+            <DTPOSTED>20251110000000</DTPOSTED>
+            <DTUSER>20251110000000</DTUSER>
+            <TRNAMT>4.03</TRNAMT>
+            <FITID>202511100003</FITID>
+            <MEMO>TRANSPORTFORNSW TAP       SYDNEY</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251107000000</DTPOSTED>
+            <DTUSER>20251107000000</DTUSER>
+            <TRNAMT>-206.08</TRNAMT>
+            <FITID>202511070004</FITID>
+            <MEMO>AIME DIS                  AIME-LA-PLAGN  116.26  EU</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251103000000</DTPOSTED>
+            <DTUSER>20251103000000</DTUSER>
+            <TRNAMT>-35.36</TRNAMT>
+            <FITID>202511030005</FITID>
+            <MEMO>BIOMONDE HOLYSPHERA       BOURG-SAINT-  19.97  EUR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251103000000</DTPOSTED>
+            <DTUSER>20251103000000</DTUSER>
+            <TRNAMT>-215.30</TRNAMT>
+            <FITID>202511030006</FITID>
+            <MEMO>SUPER U         9233375   73BOURG ST MA  121.59  EU</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251103000000</DTPOSTED>
+            <DTUSER>20251103000000</DTUSER>
+            <TRNAMT>-33.16</TRNAMT>
+            <FITID>202511030007</FITID>
+            <MEMO>LIDL 1720       4342697   731720BOURG S  18.73  EUR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251103000000</DTPOSTED>
+            <DTUSER>20251103000000</DTUSER>
+            <TRNAMT>-15.61</TRNAMT>
+            <FITID>202511030008</FITID>
+            <MEMO>CREMERIE                  PEISEY-NANCRO  8.81  EUR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251030000000</DTPOSTED>
+            <DTUSER>20251030000000</DTUSER>
+            <TRNAMT>-42.09</TRNAMT>
+            <FITID>202510300009</FITID>
+            <MEMO>BIOMONDE HOLYSPHERA       BOURG-SAINT-  23.59  EUR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251030000000</DTPOSTED>
+            <DTUSER>20251030000000</DTUSER>
+            <TRNAMT>-172.75</TRNAMT>
+            <FITID>2025103000010</FITID>
+            <MEMO>SUPER U         9233376   73BOURG ST MA  96.82  EUR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251027000000</DTPOSTED>
+            <DTUSER>20251027000000</DTUSER>
+            <TRNAMT>-57.99</TRNAMT>
+            <FITID>2025102700011</FITID>
+            <MEMO>BOVAMI                    BOURG ST MAUR  32.39  EUR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251027000000</DTPOSTED>
+            <DTUSER>20251027000000</DTUSER>
+            <TRNAMT>-355.33</TRNAMT>
+            <FITID>2025102700012</FITID>
+            <MEMO>SUPER U         9233375   73BOURG ST MA  198.47  EU</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251027000000</DTPOSTED>
+            <DTUSER>20251027000000</DTUSER>
+            <TRNAMT>-85.94</TRNAMT>
+            <FITID>2025102700013</FITID>
+            <MEMO>BIOCOOP                   BOURG-SAINT-M  48.00  EUR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251027000000</DTPOSTED>
+            <DTUSER>20251027000000</DTUSER>
+            <TRNAMT>-61.27</TRNAMT>
+            <FITID>2025102700014</FITID>
+            <MEMO>HOLDSPORT.DK ApS          +4553860222  255.00  DKK</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251027000000</DTPOSTED>
+            <DTUSER>20251027000000</DTUSER>
+            <TRNAMT>-61.27</TRNAMT>
+            <FITID>2025102700015</FITID>
+            <MEMO>HOLDSPORT.DK ApS          +4553860222  255.00  DKK</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251024000000</DTPOSTED>
+            <DTUSER>20251024000000</DTUSER>
+            <TRNAMT>-156.44</TRNAMT>
+            <FITID>2025102400016</FITID>
+            <MEMO>LIDL 1720       4774415   731720BOURG S  87.15  EUR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251024000000</DTPOSTED>
+            <DTUSER>20251024000000</DTUSER>
+            <TRNAMT>-66.36</TRNAMT>
+            <FITID>2025102400017</FITID>
+            <MEMO>BIOMONDE HOLYSPHERA       BOURG-SAINT-  36.97  EUR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251024000000</DTPOSTED>
+            <DTUSER>20251024000000</DTUSER>
+            <TRNAMT>-274.17</TRNAMT>
+            <FITID>2025102400018</FITID>
+            <MEMO>SUPER U         9233375   73BOURG ST MA  152.74  EU</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>CREDIT</TRNTYPE>
+            <DTPOSTED>20251021000000</DTPOSTED>
+            <DTUSER>20251021000000</DTUSER>
+            <TRNAMT>3445.49</TRNAMT>
+            <FITID>2025102100019</FITID>
+            <MEMO>PAYMENT THANKYOU 201195</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251020000000</DTPOSTED>
+            <DTUSER>20251020000000</DTUSER>
+            <TRNAMT>-7.50</TRNAMT>
+            <FITID>2025102000020</FITID>
+            <MEMO>Relay Geneve CFF T        GENEVE  3.80  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251020000000</DTPOSTED>
+            <DTUSER>20251020000000</DTUSER>
+            <TRNAMT>-95.09</TRNAMT>
+            <FITID>2025102000021</FITID>
+            <MEMO>Eni Cointrin              Geneve 15 Aer  48.20  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251020000000</DTPOSTED>
+            <DTUSER>20251020000000</DTUSER>
+            <TRNAMT>-0.50</TRNAMT>
+            <FITID>2025102000022</FITID>
+            <MEMO>TRANSLINK TICKETING       QLD</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251020000000</DTPOSTED>
+            <DTUSER>20251020000000</DTUSER>
+            <TRNAMT>-20.00</TRNAMT>
+            <FITID>2025102000023</FITID>
+            <MEMO>NORTHCLIFFE STATION       SURFERS PARAD</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251020000000</DTPOSTED>
+            <DTUSER>20251020000000</DTUSER>
+            <TRNAMT>-20.00</TRNAMT>
+            <FITID>2025102000024</FITID>
+            <MEMO>NORTHCLIFFE STATION       SURFERS PARAD</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251020000000</DTPOSTED>
+            <DTUSER>20251020000000</DTUSER>
+            <TRNAMT>-5.00</TRNAMT>
+            <FITID>2025102000025</FITID>
+            <MEMO>NORTHCLIFFE STATION       SURFERS PARAD</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251020000000</DTPOSTED>
+            <DTUSER>20251020000000</DTUSER>
+            <TRNAMT>-20.00</TRNAMT>
+            <FITID>2025102000026</FITID>
+            <MEMO>NORTHCLIFFE STATION       SURFERS PARAD</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251020000000</DTPOSTED>
+            <DTUSER>20251020000000</DTUSER>
+            <TRNAMT>-20.00</TRNAMT>
+            <FITID>2025102000027</FITID>
+            <MEMO>NORTHCLIFFE STATION       SURFERS PARAD</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251017000000</DTPOSTED>
+            <DTUSER>20251017000000</DTUSER>
+            <TRNAMT>-60.00</TRNAMT>
+            <FITID>2025101700028</FITID>
+            <MEMO>Spendless Shoes           Broadbeach</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251008000000</DTPOSTED>
+            <DTUSER>20251008000000</DTUSER>
+            <TRNAMT>-5.74</TRNAMT>
+            <FITID>2025100800029</FITID>
+            <MEMO>BROADBEACH GROCER         BROADBEACH</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251008000000</DTPOSTED>
+            <DTUSER>20251008000000</DTUSER>
+            <TRNAMT>-6.93</TRNAMT>
+            <FITID>2025100800030</FITID>
+            <MEMO>MERMAID BEACH SURF L      MERMAID BEACH</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251008000000</DTPOSTED>
+            <DTUSER>20251008000000</DTUSER>
+            <TRNAMT>-91.70</TRNAMT>
+            <FITID>2025100800031</FITID>
+            <MEMO>MERMAID BEACH SURF L      MERMAID BEACH</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251008000000</DTPOSTED>
+            <DTUSER>20251008000000</DTUSER>
+            <TRNAMT>-1.00</TRNAMT>
+            <FITID>2025100800032</FITID>
+            <MEMO>TRANSLINK TICKETING       QLD</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251008000000</DTPOSTED>
+            <DTUSER>20251008000000</DTUSER>
+            <TRNAMT>-5.00</TRNAMT>
+            <FITID>2025100800033</FITID>
+            <MEMO>VARSITY LAKE STATION      BRISBANE</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251008000000</DTPOSTED>
+            <DTUSER>20251008000000</DTUSER>
+            <TRNAMT>-5.00</TRNAMT>
+            <FITID>2025100800034</FITID>
+            <MEMO>VARSITY LAKE STATION      BRISBANE</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251006000000</DTPOSTED>
+            <DTUSER>20251006000000</DTUSER>
+            <TRNAMT>-25.40</TRNAMT>
+            <FITID>2025100600035</FITID>
+            <MEMO>AIRLIE AIRPORT BUS        PROSERPINE</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251006000000</DTPOSTED>
+            <DTUSER>20251006000000</DTUSER>
+            <TRNAMT>-10.00</TRNAMT>
+            <FITID>2025100600036</FITID>
+            <MEMO>BROADBEACH NORTH STA      BROADBEACH</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251006000000</DTPOSTED>
+            <DTUSER>20251006000000</DTUSER>
+            <TRNAMT>-5.00</TRNAMT>
+            <FITID>2025100600037</FITID>
+            <MEMO>BROADBEACH NORTH STA      BROADBEACH</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251006000000</DTPOSTED>
+            <DTUSER>20251006000000</DTUSER>
+            <TRNAMT>-10.00</TRNAMT>
+            <FITID>2025100600038</FITID>
+            <MEMO>BROADBEACH NORTH STA      BROADBEACH</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251002000000</DTPOSTED>
+            <DTUSER>20251002000000</DTUSER>
+            <TRNAMT>-8.50</TRNAMT>
+            <FITID>2025100200039</FITID>
+            <MEMO>CYNFANTASY PTY LTD        POTTS POINT</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251002000000</DTPOSTED>
+            <DTUSER>20251002000000</DTUSER>
+            <TRNAMT>-4.03</TRNAMT>
+            <FITID>2025100200040</FITID>
+            <MEMO>TRANSPORTFORNSW TAP       SYDNEY</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251002000000</DTPOSTED>
+            <DTUSER>20251002000000</DTUSER>
+            <TRNAMT>-7.46</TRNAMT>
+            <FITID>2025100200041</FITID>
+            <MEMO>TRANSPORTFORNSW TAP       SYDNEY</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251001000000</DTPOSTED>
+            <DTUSER>20251001000000</DTUSER>
+            <TRNAMT>-17.85</TRNAMT>
+            <FITID>2025100100042</FITID>
+            <MEMO>MCDONALDS KINGS CROS      POTTS POINT</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251001000000</DTPOSTED>
+            <DTUSER>20251001000000</DTUSER>
+            <TRNAMT>-6.20</TRNAMT>
+            <FITID>2025100100043</FITID>
+            <MEMO>CocaColaEPP               Fassifern</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251001000000</DTPOSTED>
+            <DTUSER>20251001000000</DTUSER>
+            <TRNAMT>-3.80</TRNAMT>
+            <FITID>2025100100044</FITID>
+            <MEMO>CocaColaEPP               Fassifern</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251001000000</DTPOSTED>
+            <DTUSER>20251001000000</DTUSER>
+            <TRNAMT>-4.00</TRNAMT>
+            <FITID>2025100100045</FITID>
+            <MEMO>CocaColaEPP               Fassifern</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250930000000</DTPOSTED>
+            <DTUSER>20250930000000</DTUSER>
+            <TRNAMT>-21.77</TRNAMT>
+            <FITID>2025093000046</FITID>
+            <MEMO>UBER *TRIP HELP.UBER.COM  Sydney</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250929000000</DTPOSTED>
+            <DTUSER>20250929000000</DTUSER>
+            <TRNAMT>-46.94</TRNAMT>
+            <FITID>2025092900047</FITID>
+            <MEMO>WW METRO/111 DARLINGHURST KINGS CROSS</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250929000000</DTPOSTED>
+            <DTUSER>20250929000000</DTUSER>
+            <TRNAMT>-33.43</TRNAMT>
+            <FITID>2025092900048</FITID>
+            <MEMO>HMSHostInt - AOOL         Bilinga</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250929000000</DTPOSTED>
+            <DTUSER>20250929000000</DTUSER>
+            <TRNAMT>-3.55</TRNAMT>
+            <FITID>2025092900049</FITID>
+            <MEMO>WOOLWORTHS/ROBINA TOWN CE ROBINA</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250926000000</DTPOSTED>
+            <DTUSER>20250926000000</DTUSER>
+            <TRNAMT>-10.00</TRNAMT>
+            <FITID>2025092600050</FITID>
+            <MEMO>TRANSLINK VARSITY LAKE    VARSITY LAKES</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250926000000</DTPOSTED>
+            <DTUSER>20250926000000</DTUSER>
+            <TRNAMT>-15.00</TRNAMT>
+            <FITID>2025092600051</FITID>
+            <MEMO>TRANSLINK VARSITY LAKE    VARSITY LAKES</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250926000000</DTPOSTED>
+            <DTUSER>20250926000000</DTUSER>
+            <TRNAMT>-15.00</TRNAMT>
+            <FITID>2025092600052</FITID>
+            <MEMO>TRANSLINK VARSITY LAKE    VARSITY LAKES</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250926000000</DTPOSTED>
+            <DTUSER>20250926000000</DTUSER>
+            <TRNAMT>-15.00</TRNAMT>
+            <FITID>2025092600053</FITID>
+            <MEMO>TRANSLINK VARSITY LAKE    VARSITY LAKES</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250925000000</DTPOSTED>
+            <DTUSER>20250925000000</DTUSER>
+            <TRNAMT>-86.95</TRNAMT>
+            <FITID>2025092500054</FITID>
+            <MEMO>WOOLWORTHS/ROBINA TOWN CE ROBINA</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250925000000</DTPOSTED>
+            <DTUSER>20250925000000</DTUSER>
+            <TRNAMT>-34.41</TRNAMT>
+            <FITID>2025092500055</FITID>
+            <MEMO>ALDI STORES               VARSITY LAKES</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250925000000</DTPOSTED>
+            <DTUSER>20250925000000</DTUSER>
+            <TRNAMT>-115.58</TRNAMT>
+            <FITID>2025092500056</FITID>
+            <MEMO>ALDI STORES               VARSITY LAKES</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250925000000</DTPOSTED>
+            <DTUSER>20250925000000</DTUSER>
+            <TRNAMT>-145.40</TRNAMT>
+            <FITID>2025092500057</FITID>
+            <MEMO>HAVELI JUNCTION INDIAN    VARSITY LAKES</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250924000000</DTPOSTED>
+            <DTUSER>20250924000000</DTUSER>
+            <TRNAMT>-68.87</TRNAMT>
+            <FITID>2025092400058</FITID>
+            <MEMO>CORAL SEA MARINA RESORT   AIRLIE BEACH</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250923000000</DTPOSTED>
+            <DTUSER>20250923000000</DTUSER>
+            <TRNAMT>-35.29</TRNAMT>
+            <FITID>2025092300059</FITID>
+            <MEMO>SQ *TASTE                 Gunyarra</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250923000000</DTPOSTED>
+            <DTUSER>20250923000000</DTUSER>
+            <TRNAMT>-22.25</TRNAMT>
+            <FITID>2025092300060</FITID>
+            <MEMO>Le Kiosk Cafe             Airlie Beach</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250923000000</DTPOSTED>
+            <DTUSER>20250923000000</DTUSER>
+            <TRNAMT>-117.39</TRNAMT>
+            <FITID>2025092300061</FITID>
+            <MEMO>YELLOWCAB AUS 131924      BURANDA</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250918000000</DTPOSTED>
+            <DTUSER>20250918000000</DTUSER>
+            <TRNAMT>-53.00</TRNAMT>
+            <FITID>2025091800062</FITID>
+            <MEMO>D.J SNOW &amp; H.M SNOW       PROSERPINE</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250917000000</DTPOSTED>
+            <DTUSER>20250917000000</DTUSER>
+            <TRNAMT>-12.44</TRNAMT>
+            <FITID>2025091700063</FITID>
+            <MEMO>GEORGE STREET FOODWORKS   ROCKHAMPTON</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250916000000</DTPOSTED>
+            <DTUSER>20250916000000</DTUSER>
+            <TRNAMT>-12.00</TRNAMT>
+            <FITID>2025091600064</FITID>
+            <MEMO>LS JA-NUKA PTY LTD        Norman Garden</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250916000000</DTPOSTED>
+            <DTUSER>20250916000000</DTUSER>
+            <TRNAMT>-71.50</TRNAMT>
+            <FITID>2025091600065</FITID>
+            <MEMO>LS JA-NUKA PTY LTD        Norman Garden</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250916000000</DTPOSTED>
+            <DTUSER>20250916000000</DTUSER>
+            <TRNAMT>-59.92</TRNAMT>
+            <FITID>2025091600066</FITID>
+            <MEMO>UNITED DOONAN             DOONAN</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>CREDIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>1033.31</TRNAMT>
+            <FITID>2025091500067</FITID>
+            <MEMO>PAYMENT THANKYOU 291793</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-82.00</TRNAMT>
+            <FITID>2025091500068</FITID>
+            <MEMO>L/LAND QLD    2253        BUNDABERG</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-40.30</TRNAMT>
+            <FITID>2025091500069</FITID>
+            <MEMO>Hungry Jacks              Maryborough</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-40.40</TRNAMT>
+            <FITID>2025091500070</FITID>
+            <MEMO>SQ *RICK?S ARTISAN PIES &amp; Noosavilla</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-4.90</TRNAMT>
+            <FITID>2025091500071</FITID>
+            <MEMO>SOUL ORIGIN               BROADBEACH</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-17.26</TRNAMT>
+            <FITID>2025091500072</FITID>
+            <MEMO>MCEWEN PTY LTD            MIAMI</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-12.18</TRNAMT>
+            <FITID>2025091500073</FITID>
+            <MEMO>MCEWEN PTY LTD            MIAMI</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-59.58</TRNAMT>
+            <FITID>2025091500074</FITID>
+            <MEMO>NOODLE BAR                Broadbeach</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-21.55</TRNAMT>
+            <FITID>2025091500075</FITID>
+            <MEMO>WOOLWORTHS/HOOKER BLVD    PACIFIC FAIR</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-139.98</TRNAMT>
+            <FITID>2025091500076</FITID>
+            <MEMO>CBeach Pac Fair           Broadbeach</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-229.60</TRNAMT>
+            <FITID>2025091500077</FITID>
+            <MEMO>Uniqlo Pacific Fair       Broadbeach</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-113.45</TRNAMT>
+            <FITID>2025091500078</FITID>
+            <MEMO>CITYSURF PTY LTD          BURLEIGH WATE</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-22.12</TRNAMT>
+            <FITID>2025091500079</FITID>
+            <MEMO>SMP*Hero Sushi Robina     Robina</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-12.50</TRNAMT>
+            <FITID>2025091500080</FITID>
+            <MEMO>JB HI FI ROBINA HOME      ROBINA</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-69.99</TRNAMT>
+            <FITID>2025091500081</FITID>
+            <MEMO>7301 BILLABONG BURLEIG    BURLEIGH HEAD</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-7.99</TRNAMT>
+            <FITID>2025091500082</FITID>
+            <MEMO>RIP CURL PROPRIETARY L    ROBINA</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-144.98</TRNAMT>
+            <FITID>2025091500083</FITID>
+            <MEMO>RIP CURL PROPRIETARY L    ROBINA</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-869.98</TRNAMT>
+            <FITID>2025091500084</FITID>
+            <MEMO>POST ROBINA POST SHOP     ROBINA</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-101.26</TRNAMT>
+            <FITID>2025091500085</FITID>
+            <MEMO>WOOLWORTHS/ROBINA TOWN CE ROBINA</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-20.54</TRNAMT>
+            <FITID>2025091500086</FITID>
+            <MEMO>ALDI STORES               VARSITY LAKES</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-13.80</TRNAMT>
+            <FITID>2025091500087</FITID>
+            <MEMO>THE COFFEE CLUB ARRIVALS  BRISBANE AIRP</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250915000000</DTPOSTED>
+            <DTUSER>20250915000000</DTUSER>
+            <TRNAMT>-13.09</TRNAMT>
+            <FITID>2025091500088</FITID>
+            <MEMO>THE COFFEE CLUB ARRIVALS  BRISBANE AIRP</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250912000000</DTPOSTED>
+            <DTUSER>20250912000000</DTUSER>
+            <TRNAMT>-95.00</TRNAMT>
+            <FITID>2025091200089</FITID>
+            <MEMO>L/LAND QLD    2267        VARSITY LAKES</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250912000000</DTPOSTED>
+            <DTUSER>20250912000000</DTUSER>
+            <TRNAMT>-99.74</TRNAMT>
+            <FITID>2025091200090</FITID>
+            <MEMO>LOTTE TR BRISBANE AI      EAGLE FARM</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250910000000</DTPOSTED>
+            <DTUSER>20250910000000</DTUSER>
+            <TRNAMT>-23.18</TRNAMT>
+            <FITID>2025091000091</FITID>
+            <MEMO>CFF Gare Geneve           Geneve  12.00  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250910000000</DTPOSTED>
+            <DTUSER>20250910000000</DTUSER>
+            <TRNAMT>-472.99</TRNAMT>
+            <FITID>2025091000092</FITID>
+            <MEMO>CUMBERLAND CHARTER        AIRLIE BEACH</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250815000000</DTPOSTED>
+            <DTUSER>20250815000000</DTUSER>
+            <TRNAMT>-2.01</TRNAMT>
+            <FITID>2025081500093</FITID>
+            <MEMO>Migros MMM Balexert       Geneve  1.05  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250815000000</DTPOSTED>
+            <DTUSER>20250815000000</DTUSER>
+            <TRNAMT>-107.24</TRNAMT>
+            <FITID>2025081500094</FITID>
+            <MEMO>Metro Boutique Geneve     Geneve 1  56.00  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250815000000</DTPOSTED>
+            <DTUSER>20250815000000</DTUSER>
+            <TRNAMT>-1.53</TRNAMT>
+            <FITID>2025081500095</FITID>
+            <MEMO>Migros Parking Balexert S Geneve 28  .80  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250815000000</DTPOSTED>
+            <DTUSER>20250815000000</DTUSER>
+            <TRNAMT>-12.45</TRNAMT>
+            <FITID>2025081500096</FITID>
+            <MEMO>Migros Parking Balexert S Geneve 28  6.50  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250815000000</DTPOSTED>
+            <DTUSER>20250815000000</DTUSER>
+            <TRNAMT>-164.30</TRNAMT>
+            <FITID>2025081500097</FITID>
+            <MEMO>H &amp; M                     Geneve  85.80  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250815000000</DTPOSTED>
+            <DTUSER>20250815000000</DTUSER>
+            <TRNAMT>-35.33</TRNAMT>
+            <FITID>2025081500098</FITID>
+            <MEMO>Migros MMM Balexert       Geneve  18.45  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250815000000</DTPOSTED>
+            <DTUSER>20250815000000</DTUSER>
+            <TRNAMT>-11.68</TRNAMT>
+            <FITID>2025081500099</FITID>
+            <MEMO>Migros MMM Balexert       Geneve  6.10  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250815000000</DTPOSTED>
+            <DTUSER>20250815000000</DTUSER>
+            <TRNAMT>-114.51</TRNAMT>
+            <FITID>20250815000100</FITID>
+            <MEMO>ITX Retail Suisse Sarl, 1 Geneve 1  59.80  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250815000000</DTPOSTED>
+            <DTUSER>20250815000000</DTUSER>
+            <TRNAMT>-88.09</TRNAMT>
+            <FITID>20250815000101</FITID>
+            <MEMO>ITX Retail Suisse Sarl, 1 Geneve  46.00  CHF</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>CREDIT</TRNTYPE>
+            <DTPOSTED>20250812000000</DTPOSTED>
+            <DTUSER>20250812000000</DTUSER>
+            <TRNAMT>1013.43</TRNAMT>
+            <FITID>20250812000102</FITID>
+            <MEMO>PAYMENT THANKYOU 270643</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250721000000</DTPOSTED>
+            <DTUSER>20250721000000</DTUSER>
+            <TRNAMT>-800.00</TRNAMT>
+            <FITID>20250721000103</FITID>
+            <MEMO>DFAT AUSTRALIA            SYDNEY</MEMO>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20250718000000</DTPOSTED>
+            <DTUSER>20250718000000</DTUSER>
+            <TRNAMT>-40.41</TRNAMT>
+            <FITID>20250718000104</FITID>
+            <MEMO>IKEA SA Vernier 918       Vernier  20.90  CHF</MEMO>
+          </STMTTRN>
+        </BANKTRANLIST>
+        <LEDGERBAL>
+          <BALAMT>0.0</BALAMT>
+          <DTASOF>20251113025029</DTASOF>
+        </LEDGERBAL>
+        <AVAILBAL>
+          <BALAMT>5757.08</BALAMT>
+          <DTASOF>20251113025029</DTASOF>
+        </AVAILBAL>
+      </CCSTMTRS>
+    </CCSTMTTRNRS>
+  </CREDITCARDMSGSRSV1>
+</OFX>

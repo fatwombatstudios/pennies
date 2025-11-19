@@ -1,0 +1,1 @@
+*{margin:0;padding:0;box-sizing:border-box}body{display:flex}body>nav{min-height:100vh;min-width:175px;background-color:#eee;padding:24px}body>main{padding:24px}.card{padding:12px;width:250px;background:#efefef;border-radius:5px}.desktop-bucket{display:flex;gap:24px}.desktop-bucket .card{width:175px}.flow-down{display:flex;flex-direction:column}.gap-1{gap:12px}

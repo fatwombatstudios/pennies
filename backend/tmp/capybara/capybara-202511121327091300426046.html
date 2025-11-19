@@ -1,0 +1,133 @@
+<html><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 2147483647;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style>
+    <title>New entry</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    
+
+    
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;family=Luckiest+Guy&amp;display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <link rel="stylesheet" href="/assets/application-59fe2ed6.css" data-turbo-track="reload">
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-bfcdf840.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-ad2c7b86.js",
+    "@hotwired/stimulus": "/assets/stimulus.min-4b1e420e.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-1fc53fe7.js",
+    "controllers/application": "/assets/controllers/application-3affb389.js",
+    "controllers/entry_form_controller": "/assets/controllers/entry_form_controller-075d98ad.js",
+    "controllers/hello_controller": "/assets/controllers/hello_controller-708796bd.js",
+    "controllers": "/assets/controllers/index-ee64e1f1.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-bfcdf840.js">
+<link rel="modulepreload" href="/assets/turbo.min-ad2c7b86.js">
+<link rel="modulepreload" href="/assets/stimulus.min-4b1e420e.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-1fc53fe7.js">
+<link rel="modulepreload" href="/assets/controllers/application-3affb389.js">
+<link rel="modulepreload" href="/assets/controllers/entry_form_controller-075d98ad.js">
+<link rel="modulepreload" href="/assets/controllers/hello_controller-708796bd.js">
+<link rel="modulepreload" href="/assets/controllers/index-ee64e1f1.js">
+<script type="module">import "application"</script>
+  </head>
+
+  <body>
+    <nav class="main">
+      <a href="/">Pennies</a>
+      <a href="/entries/income">Earn</a>
+      <a href="/entries/transfer">Allocate</a>
+      <a href="/entries/expense">Spend</a>
+      <a href="/buckets">Buckets</a>
+      <a href="/entries">Transactions</a>
+    </nav>
+
+    <main>
+      
+<h1>New entry</h1>
+
+<div data-controller="entry-form" data-entry-form-real-buckets-value="[{&quot;id&quot;:1,&quot;name&quot;:&quot;CIC&quot;,&quot;real&quot;:true}]" data-entry-form-income-buckets-value="[]" data-entry-form-spending-buckets-value="[{&quot;id&quot;:2,&quot;name&quot;:&quot;Savings&quot;,&quot;real&quot;:false}]" data-entry-form-virtual-buckets-value="[{&quot;id&quot;:2,&quot;name&quot;:&quot;Savings&quot;,&quot;real&quot;:false}]">
+  <form action="/entries" accept-charset="UTF-8" method="post">
+      <div style="color: red">
+        <h2>3 errors prohibited this entry from being saved:</h2>
+
+        <ul>
+            <li>Credit account must be different to the debit account</li>
+            <li>Debit account must exist</li>
+            <li>Credit account must exist</li>
+        </ul>
+      </div>
+
+    <input autocomplete="off" type="hidden" name="entry[form_type]" id="entry_form_type">
+
+    <div>
+      <label style="display: block" for="entry_action">Transaction Type</label>
+      <select data-entry-form-target="action" data-action="change-&gt;entry-form#updateForm" name="entry[action]" id="entry_action"><option selected="selected" value="">Select type...</option>
+<option value="income">Income</option>
+<option value="expense">Expense</option>
+<option value="transfer">Transfer</option></select>
+    </div>
+
+    <div>
+      <label style="display: block" for="entry_date">Date</label>
+      <input value="2025-11-12T12:27:08" type="datetime-local" name="entry[date]" id="entry_date">
+    </div>
+
+    <div>
+      <label style="display: block" for="entry_currency">Currency</label>
+      <input type="text" value="eur" name="entry[currency]" id="entry_currency">
+    </div>
+
+    <div>
+      <label style="display: block" for="entry_amount">Amount</label>
+      <input type="text" value="999.99" name="entry[amount]" id="entry_amount">
+    </div>
+
+    <div data-entry-form-target="firstSelectContainer" style="display: block;">
+      <label data-entry-form-target="firstLabel" for="entry_first_account" style="display: block">Bucket</label>
+      <select id="entry_first_account" data-entry-form-target="firstSelect" data-action="change-&gt;entry-form#handleFromChange" name="entry[bucket_account_id]"><option value="">Select...</option><option value="2">Savings</option></select>
+    </div>
+
+    <div data-entry-form-target="secondSelectContainer" style="display: block;">
+      <label data-entry-form-target="secondLabel" for="entry_second_account" style="display: block">From</label>
+      <select id="entry_second_account" data-entry-form-target="secondSelect" name="entry[from_account_id]"><option value="">Select...</option><option value="1">CIC</option></select>
+    </div>
+
+    <div>
+      <input type="submit" name="commit" value="Create Entry" data-disable-with="Create Entry">
+    </div>
+</form></div>
+
+
+<br>
+
+<div>
+  <a href="/entries">Back to entries</a>
+</div>
+
+    </main>
+  
+
+</body></html>

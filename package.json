@@ -1,0 +1,14 @@
+{
+  "name": "pennies-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"rails,vite\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && bin/dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "cd frontend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
